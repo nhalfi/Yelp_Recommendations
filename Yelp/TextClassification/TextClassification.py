@@ -14,12 +14,12 @@ def main():
     from sklearn.metrics import confusion_matrix
     from sklearn import metrics
 
-    res_health = pd.read_csv("trainingdataset_tokenized.csv")
+    res_health = pd.read_csv("../Data/nutritionix_tokenized.csv")
 
     # Splitting dataset into training and test
 
 
-    feature_data = res_health[['filtered_item_name','healthy']]
+    feature_data = res_health[['filtered_caption','healthy']]
     feature_data.head()
 
     random.seed(100)
@@ -30,13 +30,13 @@ def main():
 
     # Perform vectorization
     vector = CountVectorizer()
-    vector.fit(x_train["filtered_item_name"])
+    vector.fit(x_train["filtered_caption"])
     vector = CountVectorizer(vocabulary=vector.vocabulary_) #vocabulary is a parameter, it should be vocabulary_ as it is an attribute.
 
 
     # Apply vectorization
-    training_data = vector.transform(x_train["filtered_item_name"])
-    test_data = vector.transform(x_test["filtered_item_name"])
+    training_data = vector.transform(x_train["filtered_caption"])
+    test_data = vector.transform(x_test["filtered_caption"])
 
     # Build Naive Bayes classifier 
     # Fitting classifier on Training data
@@ -51,7 +51,7 @@ def main():
 
     # Loading the yelp dataset
 
-    yelp = pd.read_csv("yelp_final_tokenized.csv")
+    yelp = pd.read_csv("../Data/yelp_final_tokenized.csv")
     yelp_test = pd.DataFrame(yelp['filtered_caption'])
 
     # Perform vectorization on yelp dataset and generating perdictions by applying naive bayes classfier
@@ -73,7 +73,7 @@ def main():
 
 
     # Export yelp predictions to CSV
-    yelp_final.to_csv('Yelp_Healthy_restaurant_predictions.csv',  header=True)
+    yelp_final.to_csv('../Data/Yelp_Healthy_restaurant_predictions.csv',  header=True)
 
 
 if __name__ == "__main__":
