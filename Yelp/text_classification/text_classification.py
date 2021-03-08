@@ -47,7 +47,7 @@ def evaluate_model(model,x_test, test_data,label_col):
 
 def main():
     try:
-        res_health = pd.read_csv("../Data/nutritionix_tokenized.csv")
+        res_health = pd.read_csv("../data/nutritionix_tokenized.csv")
     except Exception:
         print("Ensure you have cloned the Data folder.")
     else:
@@ -69,7 +69,7 @@ def main():
 
         # Load the yelp dataset
         try:
-            yelp = pd.read_csv("../Data/yelp_final_tokenized.csv")
+            yelp = pd.read_csv("../data/yelp_final_tokenized.csv")
         except Exception:
             print("Ensure you have cloned the Data folder.")
         else:
@@ -92,7 +92,7 @@ def main():
             yelp_final
 
             # Export yelp predictions to CSV
-            yelp_final.to_csv('../Data/Yelp_Healthy_restaurant_predictions.csv',  header=True)
+            yelp_final.to_csv('../data/Yelp_Healthy_restaurant_predictions.csv',  header=True)
 
 
 if __name__ == "__main__":

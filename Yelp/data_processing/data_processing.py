@@ -50,8 +50,8 @@ def main():
     #convert JSON files to Pandas dataframes
     #due to GitHub file size constraints, these files must be downloaded locally; see instructions in README
     try:
-        df_business = pd.read_json('../Data/yelp_academic_dataset_business.json',lines=True) 
-        df_photos = pd.read_json("../Data/photos.json", lines=True)
+        df_business = pd.read_json('../data/yelp_academic_dataset_business.json',lines=True) 
+        df_photos = pd.read_json("../data/photos.json", lines=True)
     except Exception:
         print("Please double check that you have locally downloaded the Yelp Academic dataset (see README for details).")
 
@@ -61,28 +61,28 @@ def main():
 
     #drop unneeded columns and output to csv
     df_restaurants = df_restaurants.drop(['is_open','attributes','hours','restaurant'],axis = 1)
-    df_restaurants.to_csv('../Data/yelp_business_clean.csv')
+    df_restaurants.to_csv('../data/yelp_business_clean.csv')
 
     #### photo filtering ####
     df_photos = df_photos[df_photos['business_id'].isin(df_restaurants['business_id'])]
     df_photos = df_photos[df_photos['label']=="food"]
     df_photos = df_photos[df_photos['caption']!=""] # exclude records with blank captions
     #output to csv
-    df_photos.to_csv('../Data/yelp_photos_clean.csv')
+    df_photos.to_csv('../data/yelp_photos_clean.csv')
 
     #join dataframes on business_id
     df_join = df_photos.merge(df_restaurants,how='inner')
-    df_join.to_csv('../Data/yelp_joined_clean.csv')
+    df_join.to_csv('../data/yelp_joined_clean.csv')
 
     #preprocess joined dataset
     df_yelp_tokenized = text_process(df_join, 'caption')
     #output to csv
-    df_yelp_tokenized.to_csv('../Data/yelp_final_tokenized.csv')
+    df_yelp_tokenized.to_csv('../data/yelp_final_tokenized.csv')
     
     #load training data from Nutritionix API
     #this dataset was extracted via a PowerShell script; see DownloadNutritionixData.ps1 in the DataProcessing folder and the README instructions
     try:
-        with open('../Data/restaurants_items.json','r') as f:
+        with open('../data/restaurants_items.json','r') as f:
             data=f.read()
     except Exception:
         print("Please double check that you have locally downloaded the Nutritionix dataset (see README for details).")
@@ -96,11 +96,11 @@ def main():
         (df_nutritionix_health['fields.nf_calories'] >500)|(df_nutritionix_health['fields.nf_calories_from_fat'] > 200)|(df_nutritionix_health['fields.nf_total_fat']> 20) | (df_nutritionix_health['fields.nf_saturated_fat'] > 8) | (df_nutritionix_health['fields.nf_trans_fatty_acid'] >0) | (df_nutritionix_health['fields.nf_cholesterol'] > 100) | (df_nutritionix_health['fields.nf_sodium']> 766) | (df_nutritionix_health['fields.nf_sugars']> 30)]
     choices = [0]
     df_nutritionix_health['healthy'] = np.select(conditions, choices, default=1)
-    df_nutritionix_health.to_csv('../Data/nutritionix_health.csv', index=False)
+    df_nutritionix_health.to_csv('../data/nutritionix_health.csv', index=False)
 
     #preprocess training dataset
     df_nutritionix_tokenized = text_process(df_nutritionix_health, 'fields.item_name')
-    df_nutritionix_tokenized.to_csv('../Data/nutritionix_tokenized.csv')
+    df_nutritionix_tokenized.to_csv('../data/nutritionix_tokenized.csv')
 
 if __name__ == "__main__":
     main()
