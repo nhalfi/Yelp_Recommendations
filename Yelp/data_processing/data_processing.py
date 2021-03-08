@@ -10,12 +10,16 @@ import numpy as np
 import json
 import pandas as pd
 
-def textProcess(df, token_col,output_name):
+class ProcessingError(Exception):
+    #raised if output from text_process produces an empty dataframe
+    pass
+
+def text_process(df, token_col):
     """
     -function to perform text preprocessing activities needed for text classification
     -df: input dataframe that contains text to be preprocessed
     -token_col: column name with relevant words to tokenize, filter, and stem
-    -output_name: base name for file output
+    -returns dataframe with text that has been tokenized, filtered for stopwords, and stemmed
     """
 
     #create dataframe copy
@@ -35,23 +39,23 @@ def textProcess(df, token_col,output_name):
     porter = PorterStemmer()
     df2['filtered_caption'] = df2['filtered_caption'].apply(lambda x:[porter.stem(item) for item in x])
 
-    #export to csv
-    file_name = str(output_name+'_tokenized.csv')
-    print(file_name)
-    file_path = str('../Data/'+file_name)
-    print(file_path)
-    df2.to_csv(file_path)
-
+    if(len(df2)==0):
+        raise ProcessingError(("ProcessingError: tokenized dataframe contains no records"))
+    else:
+        #return tokenized dataframe
+        return(df2)
             
 
 def main():
     #convert JSON files to Pandas dataframes
     #due to GitHub file size constraints, these files must be downloaded locally; see instructions in README
-    df_business = pd.read_json('../Data/yelp_academic_dataset_business.json',lines=True) 
-    df_photos = pd.read_json("../Data/photos.json", lines=True)
+    try:
+        df_business = pd.read_json('../Data/yelp_academic_dataset_business.json',lines=True) 
+        df_photos = pd.read_json("../Data/photos.json", lines=True)
+    except Exception:
+        print("Please double check that you have locally downloaded the Yelp Academic dataset (see README for details).")
 
     #### restaurant filtering ####
-
     df_business['restaurant'] = df_business['categories'].str.contains('Restaurants|Food') 
     df_restaurants = df_business[df_business['restaurant']==True]
 
@@ -71,17 +75,20 @@ def main():
     df_join.to_csv('../Data/yelp_joined_clean.csv')
 
     #preprocess joined dataset
-    textProcess(df_join, 'caption','yelp_final')
+    df_yelp_tokenized = text_process(df_join, 'caption')
+    #output to csv
+    df_yelp_tokenized.to_csv('../Data/yelp_final_tokenized.csv')
     
-
     #load training data from Nutritionix API
     #this dataset was extracted via a PowerShell script; see DownloadNutritionixData.ps1 in the DataProcessing folder and the README instructions
-    with open('../Data/restaurants_items.json','r') as f:
-        data=f.read()
+    try:
+        with open('../Data/restaurants_items.json','r') as f:
+            data=f.read()
+    except Exception:
+        print("Please double check that you have locally downloaded the Nutritionix dataset (see README for details).")
+
     obj = json.loads(data)
     df_nutritionix = pd.DataFrame.from_dict(obj, orient='columns')
-
-    FIELDS = ["fields.item_name","fileds.brand_name","fields.upc","fields.nt_ingredient_statement","fields.nf_calories", "fields.nf_calories_from_fat","fields.nf_total_fat","fields.nf_saturated_fat","fields.nf_trans_fatty_acid","fields.nf_cholesterol","fields.nf_sodium","fields.nf_sugars","fields.nf_protein","fields.nf_serving_per_container"]
     df_nutritionix = pd.json_normalize(obj)
 
     df_nutritionix_health = df_nutritionix.copy()
@@ -91,9 +98,9 @@ def main():
     df_nutritionix_health['healthy'] = np.select(conditions, choices, default=1)
     df_nutritionix_health.to_csv('../Data/nutritionix_health.csv', index=False)
 
-
     #preprocess training dataset
-    textProcess(df_nutritionix_health, 'fields.item_name','nutritionix')
+    df_nutritionix_tokenized = text_process(df_nutritionix_health, 'fields.item_name')
+    df_nutritionix_tokenized.to_csv('../Data/nutritionix_tokenized.csv')
 
 if __name__ == "__main__":
     main()
