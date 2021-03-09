@@ -36,7 +36,7 @@ class MyTest_Classification(unittest.TestCase):
             We call the function with no passing parameters
             We expect the code will raise an exception error
         """
-        text_classification.vectorize_text()
+        self.assertTrue(text_classification.vectorize_text())
       
     
     def test_vectorize_function_with_input(self):
@@ -49,6 +49,18 @@ class MyTest_Classification(unittest.TestCase):
         
         print('List of features in alphabet order: ', result.get_feature_names())
         print('Structure of vocabulary dictionary: ', result.vocabulary_)
+        
+        # Because the test sample is a short sentence (5 words)
+        # so its vector number will be in the range 0 to 9
+
+        value_check = result.vocabulary_['healthy']
+        print('vectorized value of healthy: ', value_check)
+        print('length: ', len(str(value_check)))
+        
+        # we can check the length of one randon word in the return result
+        # if the numnber is one digit (aka less than 10), then we pass the test
+        # if not equal, display the message of fail
+        self.assertEqual(len(str(value_check)), 1, "Fail the test") 
            
             
     def test_main(self):
