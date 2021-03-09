@@ -45,6 +45,48 @@ def text_process(df, token_col):
         #return tokenized dataframe
         return(df2)
             
+def calculate_health(df):
+    """
+    -function that contains logic to calculate healthy boolean flag for training data
+    -df: input dataframe that contains restaurant menu items and nutritional information
+    -returns dataframe with calculated healthy column
+    """
+    
+    df2 = df.copy()
+    conditions = [(df2['fields.nf_calories'] >500)|(df2['fields.nf_calories_from_fat'] > 200)|(df2['fields.nf_total_fat']> 20) 
+    | (df2['fields.nf_saturated_fat'] > 8) | (df2['fields.nf_trans_fatty_acid'] >0) | (df2['fields.nf_cholesterol'] > 100) 
+    | (df2['fields.nf_sodium']> 766) | (df2['fields.nf_sugars']> 30)]
+    choices = [0]
+    df2['healthy'] = np.select(conditions, choices, default=1)
+
+    return(df2)
+
+def clean_yelp(df_business, df_photos):
+    """
+    -function that contains logic filter and join yelp datasets
+    -df_business: input dataframe that contains Yelp business data
+    -df_photos: input dataframe that contains Yelp photo data
+    -returns cleaned and joined dataframe
+    """
+    
+    df_business['restaurant'] = df_business['categories'].str.contains('Restaurants|Food') 
+    df_restaurants = df_business[df_business['restaurant']==True]
+
+    #drop unneeded columns and output to csv
+    df_restaurants = df_restaurants.drop(['is_open','attributes','hours','restaurant'],axis = 1)
+    #df_restaurants.to_csv('../data/yelp_business_clean.csv')
+
+    #### photo filtering ####
+    df_photos = df_photos[df_photos['business_id'].isin(df_restaurants['business_id'])]
+    df_photos = df_photos[df_photos['label']=="food"]
+    df_photos = df_photos[df_photos['caption']!=""] # exclude records with blank captions
+    #output to csv
+    #df_photos.to_csv('../data/yelp_photos_clean.csv')
+
+    #join dataframes on business_id
+    df_join = df_photos.merge(df_restaurants,how='inner')
+
+    return(df_join)
 
 def main():
     #convert JSON files to Pandas dataframes
@@ -55,23 +97,8 @@ def main():
     except Exception:
         print("Please double check that you have locally downloaded the Yelp Academic dataset (see README for details).")
 
-    #### restaurant filtering ####
-    df_business['restaurant'] = df_business['categories'].str.contains('Restaurants|Food') 
-    df_restaurants = df_business[df_business['restaurant']==True]
-
-    #drop unneeded columns and output to csv
-    df_restaurants = df_restaurants.drop(['is_open','attributes','hours','restaurant'],axis = 1)
-    df_restaurants.to_csv('../data/yelp_business_clean.csv')
-
-    #### photo filtering ####
-    df_photos = df_photos[df_photos['business_id'].isin(df_restaurants['business_id'])]
-    df_photos = df_photos[df_photos['label']=="food"]
-    df_photos = df_photos[df_photos['caption']!=""] # exclude records with blank captions
-    #output to csv
-    df_photos.to_csv('../data/yelp_photos_clean.csv')
-
-    #join dataframes on business_id
-    df_join = df_photos.merge(df_restaurants,how='inner')
+    #filter and join data
+    df_join = clean_yelp(df_business,df_photos)
     df_join.to_csv('../data/yelp_joined_clean.csv')
 
     #preprocess joined dataset
@@ -91,11 +118,7 @@ def main():
     df_nutritionix = pd.DataFrame.from_dict(obj, orient='columns')
     df_nutritionix = pd.json_normalize(obj)
 
-    df_nutritionix_health = df_nutritionix.copy()
-    conditions = [
-        (df_nutritionix_health['fields.nf_calories'] >500)|(df_nutritionix_health['fields.nf_calories_from_fat'] > 200)|(df_nutritionix_health['fields.nf_total_fat']> 20) | (df_nutritionix_health['fields.nf_saturated_fat'] > 8) | (df_nutritionix_health['fields.nf_trans_fatty_acid'] >0) | (df_nutritionix_health['fields.nf_cholesterol'] > 100) | (df_nutritionix_health['fields.nf_sodium']> 766) | (df_nutritionix_health['fields.nf_sugars']> 30)]
-    choices = [0]
-    df_nutritionix_health['healthy'] = np.select(conditions, choices, default=1)
+    df_nutritionix_health = calculate_health(df_nutritionix)
     df_nutritionix_health.to_csv('../data/nutritionix_health.csv', index=False)
 
     #preprocess training dataset
