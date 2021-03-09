@@ -36,7 +36,8 @@ class MyTest_Classification(unittest.TestCase):
             We call the function with no passing parameters
             We expect the code will raise an exception error
         """
-        self.assertTrue(text_classification.vectorize_text())
+        
+        self.assertRaises(Exception, text_classification.vectorize_text())
       
     
     def test_vectorize_function_with_input(self):
@@ -59,19 +60,10 @@ class MyTest_Classification(unittest.TestCase):
         
         # we can check the length of one randon word in the return result
         # if the numnber is one digit (aka less than 10), then we pass the test
-        # if not equal one digit, then display the message of fail
+        # if not equal, display the message of fail
         self.assertEqual(len(str(value_check)), 1, "Fail the test") 
-           
-            
-    def test_main(self):
-        """
-            Test the main module - WIP
-        """
-        text_classification.main()
-            
-            
-            
-            
+        
+        
             
 if __name__ == "__main__":
     unittest.main()
