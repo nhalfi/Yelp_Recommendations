@@ -18,7 +18,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    packages=['Yelp_Recommendations'],
-    install_requires = ['pandas','numpy','sklearn','nltk','json','random','math'],
+    packages=['Yelp'],
+    install_requires = ['pandas','numpy','sklearn','nltk'],
     python_requires=">=3.7"
 )
