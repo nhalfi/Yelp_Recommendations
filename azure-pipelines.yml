@@ -2,6 +2,7 @@
 # Build your Python project and deploy it to Azure as a Linux Web App.
 # Change python version to one thats appropriate for your application.
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
+# pip install -r requirements.txt
 trigger:
 - main
 variables:
@@ -34,7 +35,6 @@ stages:
         source antenv/bin/activate
         python -m pip install --upgrade pip
         pip install setup
-        pip install -r requirements.txt
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
     - task: ArchiveFiles@2
