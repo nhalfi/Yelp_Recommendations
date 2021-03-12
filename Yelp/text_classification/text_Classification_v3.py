@@ -43,7 +43,7 @@ random.seed(100)
 def split_test_train_dataset(res_health,yelp):
     
       """
-            This function splits Nutritionix dataset into test and train dataset, also creates a test dataset from yelp dataset to later generate predictions on
+            This function splits res_health (Nutritionix) dataset into test and train dataset, also creates a test dataset from yelp dataset to later generate predictions on
             - x_train : Training dataset from Nutritionix 
             - x_test : Test dataset for Nutritionix
             - yelp_test : Test Dataset from yelp
