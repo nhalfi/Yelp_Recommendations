@@ -22,24 +22,16 @@ def load_datasets(yp_business_path, yp_photo_path, nutritionix_path):
     """
 
     #load yelp datasets; due to GitHub file size constraints, these files must be downloaded locally; see instructions in README
-    try:
-        df_business = pd.read_json(yp_business_path,lines=True)  #update path
-        df_photos = pd.read_json(yp_photo_path, lines=True)
-    except Exception:
-        print("Please double check that you have locally downloaded the Yelp Academic dataset (see README for details).")
-    
+    df_business = pd.read_json(yp_business_path,lines=True)  
+    df_photos = pd.read_json(yp_photo_path, lines=True)
 
     #load training data from Nutritionix API
     #this dataset was extracted via a PowerShell script; see DownloadNutritionixData.ps1 in the DataProcessing folder and the README instructions
-    try:
-        with open(nutritionix_path,'r') as f:
-            data=f.read()
-    except Exception:
-        print("Please double check that you have locally downloaded the Nutritionix dataset (see README for details).")
-    else:
-        obj = json.loads(data)
-        df_nutritionix = pd.DataFrame.from_dict(obj, orient='columns')
-        df_nutritionix = pd.json_normalize(obj)
+    with open(nutritionix_path,'r') as f:
+        data=f.read()
+    obj = json.loads(data)
+    df_nutritionix = pd.DataFrame.from_dict(obj, orient='columns')
+    df_nutritionix = pd.json_normalize(obj)
 
     return(df_business,df_photos,df_nutritionix)
 
@@ -152,6 +144,7 @@ def main():
 
         #output dataframes to csv
         output_csv(df_join, df_yelp_tokenized, df_nutritionix_health, df_nutritionix_tokenized)
+
     except Exception as e:
         #print error message associated with e
         print(e)
