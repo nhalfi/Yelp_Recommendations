@@ -3,4 +3,5 @@ text_preprocessing/yelp_final_tokenized.csv
 text_preprocessing/yelp_final_tokenized.zip
 Yelp/tests/.coverage
 *.pyc
-.idea
+.idea/
+.DS_Store/
