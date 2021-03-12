@@ -39,32 +39,33 @@ random.seed(100)
 
 
 
-
+#-----------------------------------------------------------------------------------------------------
 def split_test_train_dataset(res_health,yelp):
     
+      """
+            This function splits Nutritionix dataset into test and train dataset, also creates a test dataset from yelp dataset to later generate predictions on
+            - x_train : Training dataset from Nutritionix 
+            - x_test : Test dataset for Nutritionix
+            - yelp_test : Test Dataset from yelp
+        """ 
+    
     global x_train, x_test, yelp_test
-    
-    
-    # Splitting dataset into training and test
-    # global x_train, x_test
+
     feature_data = res_health[['filtered_caption','healthy']]
-    feature_data.head()
-    
     x_train , x_test = train_test_split(feature_data,test_size=0.5)
-        
     yelp_test = pd.DataFrame(yelp['filtered_caption'])
         
     return(x_train, x_test, yelp_test)
 
 
-# In[78]:
-
-
+#-----------------------------------------------------------------------------------------------------
 def vectorize_text(x_train, x_test, yelp_test):
-    
-    """
-    -xyz
-    """
+      """
+            This function splits Nutritionix dataset into test and train dataset
+            - Function to invoke the CountVectorize from the library to vectorize data for model
+            - Return the vecterization data for transformation for training, test and yelp data
+            - An exception will raise when the output is not in a vector format
+        """
     
     global training_data, test_data, yelp_test_data
     
@@ -85,9 +86,7 @@ def vectorize_text(x_train, x_test, yelp_test):
     return(training_data, test_data, yelp_test_data)
 
 
-# In[79]:
-
-
+#-----------------------------------------------------------------------------------------------------
 def fit_and_evaluate_model(training_data, test_data,x_test, label_col):
     """
     -evaluates model generated with training data against test data
@@ -114,7 +113,7 @@ def fit_and_evaluate_model(training_data, test_data,x_test, label_col):
     return(conf_matrix, accuracy, model)
 
 
-
+#-----------------------------------------------------------------------------------------------------
 def predict_on_Yelp(model, yelp_test_data, yelp):
     
     global yelp_final
@@ -137,7 +136,7 @@ def predict_on_Yelp(model, yelp_test_data, yelp):
     return yelp_final
 
 
-
+#-----------------------------------------------------------------------------------------------------
 def main():
     
     
