@@ -11,7 +11,7 @@ import pandas as pd
 import numpy as np
 import unittest
 import text_classification
-from text_classification import text_Classification_v3 as tc
+from text_classification import text_Classification as tc
 
 
 # In[37]:
