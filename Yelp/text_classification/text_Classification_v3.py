@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[75]:
-
 
 import json 
 import pandas as pd 
@@ -14,9 +12,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import confusion_matrix
 from sklearn import metrics
-
-
-# In[76]:
 
 
 # Declare all variables outside of the function main, then reference them as glabal variables inside each function
@@ -43,7 +38,6 @@ yelp_final = []
 random.seed(100)
 
 
-# In[77]:
 
 
 def split_test_train_dataset(res_health,yelp):
@@ -94,7 +88,7 @@ def vectorize_text(x_train, x_test, yelp_test):
 # In[79]:
 
 
-def fit_and_evaluate_model(training_data, test_data, label_col):
+def fit_and_evaluate_model(training_data, test_data,x_test, label_col):
     """
     -evaluates model generated with training data against test data
     -model: model object
@@ -120,8 +114,6 @@ def fit_and_evaluate_model(training_data, test_data, label_col):
     return(conf_matrix, accuracy, model)
 
 
-# In[73]:
-
 
 def predict_on_Yelp(model, yelp_test_data, yelp):
     
@@ -144,8 +136,6 @@ def predict_on_Yelp(model, yelp_test_data, yelp):
     
     return yelp_final
 
-
-# In[82]:
 
 
 def main():
@@ -170,7 +160,7 @@ def main():
         label_col =x_train['healthy']
     
          # Call the fit and evaluate function for Nutritionix
-        conf_matrix, accuracy, model = fit_and_evaluate_model(training_data, test_data, label_col)
+        conf_matrix, accuracy, model = fit_and_evaluate_model(training_data, test_data, x_test, label_col)
 
         # Call the fit and evaluate function for Yelp                        
         yelp_final = predict_on_Yelp(model, yelp_test_data, yelp)
@@ -185,10 +175,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# In[ ]:
-
-
-
 
