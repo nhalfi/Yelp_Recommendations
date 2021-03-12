@@ -191,21 +191,8 @@ class MyTest_Classification(unittest.TestCase):
 
        
 
-
-# In[40]:
-
-
-unittest.main(argv=[''], verbosity=2,exit=False)
-
-
-# In[39]:
-
-
-pwd
-
-
-# In[ ]:
-
+if __name__ == '__main__':
+    unittest.main()
 
 
 
