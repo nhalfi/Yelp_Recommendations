@@ -116,6 +116,12 @@ def fit_and_evaluate_model(training_data, test_data, x_test, label_col):
 #-----------------------------------------------------------------------------------------------------
 def predict_on_Yelp(model, yelp_test_data, yelp):
     
+        """
+            - Function to take fitted naive Bayes model as an input and predict on yelp dataset 
+            - Returns the final yelp dataset with prediction scores of restaurent being healthy or not and generates CSV file that serves as an input to the UI application
+         
+        """
+    
     global yelp_final
     
     # Predicting with Naive Bayes classifier
