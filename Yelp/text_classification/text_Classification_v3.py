@@ -169,14 +169,7 @@ def main():
 
         # Call the fit and evaluate function for Yelp                        
         yelp_final = predict_on_Yelp(model, yelp_test_data, yelp)
-        
-        
-        print(conf_matrix)
-        print(accuracy)
-        print(type(conf_matrix))
-        print(type(accuracy))
-        print(type(yelp_final))
-
+       
 
 if __name__ == "__main__":
     main()
