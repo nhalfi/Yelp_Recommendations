@@ -1,0 +1,192 @@
+[
+    {
+      "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+      "_type": "item",
+      "_id": "152134561df32dbc01745450",
+      "_score": 1,
+      "fields": {
+        "item_name": "Chili Cheese Fries",
+        "brand_name": "Taco Bell Canada",
+        "nf_calories": 410,
+        "nf_calories_from_fat": null,
+        "nf_total_fat": 21,
+        "nf_saturated_fat": 2.5,
+        "nf_trans_fatty_acid": 0,
+        "nf_cholesterol": 10,
+        "nf_sodium": 800,
+        "nf_sugars": 1,
+        "nf_protein": 8
+      }
+    },
+    {
+      "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+      "_type": "item",
+      "_id": "1521345625524b743a73cabc",
+      "_score": 1,
+      "fields": {
+        "item_name": "Steak Chalupa Supreme",
+        "brand_name": "Taco Bell Canada",
+        "nf_calories": 360,
+        "nf_calories_from_fat": null,
+        "nf_total_fat": 21,
+        "nf_saturated_fat": 4.5,
+        "nf_trans_fatty_acid": 0,
+        "nf_cholesterol": 35,
+        "nf_sodium": 520,
+        "nf_sugars": 3,
+        "nf_protein": 15
+      }
+    },
+    {
+      "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+      "_type": "item",
+      "_id": "1521345635136d0077024b05",
+      "_score": 1,
+      "fields": {
+        "item_name": "7-Layer Burrito - Chicken",
+        "brand_name": "Taco Bell Canada",
+        "nf_calories": 430,
+        "nf_calories_from_fat": null,
+        "nf_total_fat": 17,
+        "nf_saturated_fat": 7,
+        "nf_trans_fatty_acid": 0,
+        "nf_cholesterol": 55,
+        "nf_sodium": 890,
+        "nf_sugars": 3,
+        "nf_protein": 19
+      }
+    },
+    {
+      "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+      "_type": "item",
+      "_id": "1521345653317d5d77d8e9a1",
+      "_score": 1,
+      "fields": {
+        "item_name": "Fresco Beef Crunchy Taco",
+        "brand_name": "Taco Bell Canada",
+        "nf_calories": 150,
+        "nf_calories_from_fat": null,
+        "nf_total_fat": 8,
+        "nf_saturated_fat": 2.5,
+        "nf_trans_fatty_acid": 0,
+        "nf_cholesterol": 15,
+        "nf_sodium": 310,
+        "nf_sugars": 2,
+        "nf_protein": 6
+      }
+    },
+    {
+      "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+      "_type": "item",
+      "_id": "152134566aa9e3fd741a6665",
+      "_score": 1,
+      "fields": {
+        "item_name": "Cinnamon Twists",
+        "brand_name": "Taco Bell Canada",
+        "nf_calories": 170,
+        "nf_calories_from_fat": null,
+        "nf_total_fat": 6,
+        "nf_saturated_fat": 0,
+        "nf_trans_fatty_acid": 0,
+        "nf_cholesterol": 0,
+        "nf_sodium": 210,
+        "nf_sugars": 13,
+        "nf_protein": 1
+      }
+    },
+    {
+      "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+      "_type": "item",
+      "_id": "152134566fbb489dbe2adb06",
+      "_score": 1,
+      "fields": {
+        "item_name": "Cheese Quesadilla",
+        "brand_name": "Taco Bell Canada",
+        "nf_calories": 470,
+        "nf_calories_from_fat": null,
+        "nf_total_fat": 26,
+        "nf_saturated_fat": 12,
+        "nf_trans_fatty_acid": 0.5,
+        "nf_cholesterol": 50,
+        "nf_sodium": 770,
+        "nf_sugars": 1,
+        "nf_protein": 21
+      }
+    },
+    {
+      "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+      "_type": "item",
+      "_id": "152134567ad7cb650c09c1dc",
+      "_score": 1,
+      "fields": {
+        "item_name": "7-Layer Burrito - Beef",
+        "brand_name": "Taco Bell Canada",
+        "nf_calories": 450,
+        "nf_calories_from_fat": null,
+        "nf_total_fat": 20,
+        "nf_saturated_fat": 8,
+        "nf_trans_fatty_acid": 0.5,
+        "nf_cholesterol": 35,
+        "nf_sodium": 910,
+        "nf_sugars": 3,
+        "nf_protein": 16
+      }
+    },
+    {
+      "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+      "_type": "item",
+      "_id": "15213456a2d3c78e8385fb92",
+      "_score": 1,
+      "fields": {
+        "item_name": "Beef Soft Taco",
+        "brand_name": "Taco Bell Canada",
+        "nf_calories": 190,
+        "nf_calories_from_fat": null,
+        "nf_total_fat": 9,
+        "nf_saturated_fat": 4.5,
+        "nf_trans_fatty_acid": 0,
+        "nf_cholesterol": 25,
+        "nf_sodium": 450,
+        "nf_sugars": 1,
+        "nf_protein": 9
+      }
+    },
+    {
+      "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+      "_type": "item",
+      "_id": "15213456c4a565af9ea34cde",
+      "_score": 1,
+      "fields": {
+        "item_name": "Bean Chalupa Supreme",
+        "brand_name": "Taco Bell Canada",
+        "nf_calories": 370,
+        "nf_calories_from_fat": null,
+        "nf_total_fat": 20,
+        "nf_saturated_fat": 4,
+        "nf_trans_fatty_acid": 0,
+        "nf_cholesterol": 15,
+        "nf_sodium": 480,
+        "nf_sugars": 3,
+        "nf_protein": 11
+      }
+    },
+    {
+      "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+      "_type": "item",
+      "_id": "15213456faa33d4f620cbfb9",
+      "_score": 1,
+      "fields": {
+        "item_name": "Bean Cheesy Gordita Crunch",
+        "brand_name": "Taco Bell Canada",
+        "nf_calories": 490,
+        "nf_calories_from_fat": null,
+        "nf_total_fat": 25,
+        "nf_saturated_fat": 9,
+        "nf_trans_fatty_acid": 0,
+        "nf_cholesterol": 35,
+        "nf_sodium": 740,
+        "nf_sugars": 3,
+        "nf_protein": 20
+      }
+    }
+]
