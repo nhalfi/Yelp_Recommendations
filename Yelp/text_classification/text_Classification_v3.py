@@ -61,10 +61,9 @@ def split_test_train_dataset(res_health,yelp):
 #-----------------------------------------------------------------------------------------------------
 def vectorize_text(x_train, x_test, yelp_test):
       """
-            This function splits Nutritionix dataset into test and train dataset
             - Function to invoke the CountVectorize from the library to vectorize data for model
             - Return the vecterization data for transformation for training, test and yelp data
-            - An exception will raise when the output is not in a vector format
+         
         """
     
     global training_data, test_data, yelp_test_data
@@ -87,14 +86,15 @@ def vectorize_text(x_train, x_test, yelp_test):
 
 
 #-----------------------------------------------------------------------------------------------------
-def fit_and_evaluate_model(training_data, test_data,x_test, label_col):
+def fit_and_evaluate_model(training_data, test_data, x_test, label_col):
     """
-    -evaluates model generated with training data against test data
-    -model: model object
-    -x_test: test split dataset
-    -test_data: xyz
-    -label_col: xyz
-    -returns confusion matrix and accuracy score for model applied to test dataset
+    - Evaluates model generated with training data against test data
+    - model: model object
+    - x_test: Nutritionix test dataset to calculate confusion metrics and accuracy
+    - test_data: Nutrionix vectorized captions to predict labels
+    - training dataset : Nutrionix vectorized captions to train model
+    - label_col: labels of Nutrionix dataset to train model
+    - returns confusion matrix and accuracy score for model applied to test dataset
     """
     
     global conf_matrix, accuracy, model
