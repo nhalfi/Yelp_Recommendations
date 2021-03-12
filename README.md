@@ -15,7 +15,7 @@ With the accelerating pace of life and the surge in demand for healthy lifestyle
 
 <h2><i>Installation</i></h2> WIP
 
-<h2><i>Examples</i></h2> WIP
+<h2><i>Examples (How to use Yelp-Recommendations)</i></h2> WIP
 
 <h2><i>Limitations</i></h2> WIP
 
