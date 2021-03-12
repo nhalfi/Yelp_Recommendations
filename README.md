@@ -8,10 +8,17 @@ With the accelerating pace of life and the surge in demand for healthy lifestyle
 
 <i> <h4> Yelp Dataset </h4></i> The main dataset for our project is the public Yelp Open Dataset. This dataset is available to the public in JSON files. The data captures details of almost 209K Businesses across ~10 cities capturing ~ 8M reviews and ~200K pictures. Though original Yelp dataset is rich in many data dimensions, not all the data features are useful, instead, finding the right data features for the job is as important as building an effective model. Our project focuses on the classification of healthy or unhealthy restaurants based on the photos shared by Yelpers. Therefore, business data and photo data are key features for our model. 
 
-
 <i> <h4> Nutritionix Dataset </h4></i> The second dataset is the Nutritionix dataset which contains nutrition information from chain restaurants across the US.  We are using it to train our classification model that will assign healthy or unhealthy labels.
 
 
 <h2><i>Organization of the Project</i></h2> WIP
 
-<h2><i>Reproducibility steps</i></h2> WIP
+<h2><i>Installation</i></h2> WIP
+
+<h2><i>Examples</i></h2> WIP
+
+<h2><i>Limitations</i></h2> WIP
+
+<h2><i>Acknowledgements</i></h2> WIP
+
+<h2><i>Contact (optional)</i></h2> WIP
