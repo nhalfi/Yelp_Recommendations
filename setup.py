@@ -29,7 +29,7 @@ setuptools.setup(
 'plotly',
  'dash-renderer',
 'dash-table',
-'dash-future',
+'future',
 'Jinja2'                      
 ],
     python_requires=">=3.7"
