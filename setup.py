@@ -19,7 +19,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     packages=['Yelp'],
-    install_requires = ['pandas','numpy','sklearn','nltk','pandas', 'dash',
+    install_requires = ['pandas','numpy','sklearn','nltk','pandas', 'dash==1.19.0',
 'dash-bootstrap-components',
 'dash-core-components',
 'dash-html-components',
