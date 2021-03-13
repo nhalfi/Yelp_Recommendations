@@ -25,10 +25,8 @@ We extracted these files from the Yelp Open Dataset. For more information and ad
 
 #### 2. Download Nutritionix Data
 
-We have already extracted this dataset for you in the data folder (restaurants_items.json). However, if you would like to pull from the Nutritionix API yourself, proceed with the following:
-
-Navigate to the data folder:   
-```cd Yelp/data```  
+Navigate to the data_processing folder:   
+```cd Yelp/data_processing```  
 Run the download_nutritionix_data.ps1 script:  
 ``` powershell.exe -file "download_nutritionix_data.ps1"```
 
