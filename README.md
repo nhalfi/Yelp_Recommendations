@@ -71,7 +71,10 @@ The project has the following structure: <br>
 
 <h2><i>Examples (How to use Yelp-Recommendations)</i></h2> WIP
 
-<h2><i>Limitations</i></h2> WIP
+<h2><i>Limitations and Future Work</i></h2> WIP
+* The cities covered by the project are very limited
+* Additional training datasets that are closer to Yelp
+* Image classification of photos in addition to text classification
 
 <h2><i>Acknowledgements</i></h2> WIP
 We are very grateful to our course instructors, Dr. Mark Friedman and Bernease Herman, of the University of Washington, for their valuable guidance of DATA 515 project, which greatly improved our understanding of software design and specific practice skills in data science. <br>
