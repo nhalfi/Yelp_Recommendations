@@ -77,7 +77,7 @@ The project has the following structure: <br>
   * Additional training datasets that are closer to Yelp <br>
   * Image classification of photos in addition to text classification <br>
 
-<h2><i>Acknowledgements</i></h2> WIP
+<h2><i>Acknowledgements</i></h2> 
 We are very grateful to our course instructors, Dr. Mark Friedman and Bernease Herman, of the University of Washington, for their valuable guidance of DATA 515 project, which greatly improved our understanding of software design and specific practice skills in data science. <br>
 Our data sources are mainly the public Yelp Open Dataset and the Nutritionix dataset, we sincerely thank these open source data for supporting this project.
 
