@@ -4,7 +4,7 @@ import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
-from data.restaurants_dao import get_yelp_dataframe
+from data.restaurants_dao import get_yelp_dataframe, load_data_from_file
 from dash.dependencies import Input, Output
 import flask
 from ui.html_components import Components, get_initial_view, ModelCoverter
@@ -13,7 +13,8 @@ from ui.html_components import Components, get_initial_view, ModelCoverter
 server = flask.Flask(__name__)
 app = dash.Dash(__name__, external_stylesheets = [dbc.themes.BOOTSTRAP], server=server, prevent_initial_callbacks=True)
 
-df = get_yelp_dataframe()
+
+df = load_data_from_file()
 
 model_converter = ModelCoverter(df)
 @app.callback(
@@ -41,8 +42,8 @@ def update_text(state_selected,cities_selected,health_score_selected,ratings,sea
     filter['ratings'] = ratings
     
 
-    df = get_yelp_dataframe(user_selections= filter)
-    model_converter = ModelCoverter(df)
+    filtered_df = get_yelp_dataframe(df,user_selections= filter)
+    model_converter = ModelCoverter(filtered_df)
 
     return model_converter.get_unique_cities(), model_converter.get_cluster_makers(), model_converter.get_restaurant_cards()
 

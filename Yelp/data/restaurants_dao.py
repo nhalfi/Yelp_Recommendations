@@ -1,7 +1,10 @@
 import pandas as pd
 
-yelp_data_file = 'data/Yelp_Healthy_restaurant_predictions.csv'
-df =  pd.read_csv(yelp_data_file)
+
+def load_data_from_file():
+    yelp_data_file = 'data/Yelp_Healthy_restaurant_predictions.csv'
+    df =  pd.read_csv(yelp_data_file)
+    return df
 
 def search(regex: str, df, case=False):
     """Search all the text columns of `df`, return rows with any matches."""
@@ -12,17 +15,12 @@ def search(regex: str, df, case=False):
         ).any(axis=1)
     ]
 
-def get_yelp_dataframe(user_df=None, user_selections = None):
-    filtered_df = df
-    if  user_df is not None:
-        filtered_df = user_df
-    print(user_selections)
-    
-
+def get_yelp_dataframe(user_df, user_selections = None):
+    filtered_df = user_df    
     if user_selections:
         search_string = user_selections.get('search_string', None)
         if search_string:
-            filtered_df = search(search_string,df)
+            filtered_df = search(search_string,filtered_df)
 
         states_selected = user_selections.get('states_selected', None)
         print(states_selected)
