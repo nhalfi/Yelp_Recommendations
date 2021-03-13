@@ -1,0 +1,11 @@
+_index,_type,_id,_score,fields.item_name,fields.brand_name,fields.nf_calories,fields.nf_calories_from_fat,fields.nf_total_fat,fields.nf_saturated_fat,fields.nf_trans_fatty_acid,fields.nf_cholesterol,fields.nf_sodium,fields.nf_sugars,fields.nf_protein
+f762ef22-e660-434f-9071-a10ea6691c27,item,152134561df32dbc01745450,1,Chili Cheese Fries,Taco Bell Canada,410,,21,2.5,0.0,10,800,1,8
+f762ef22-e660-434f-9071-a10ea6691c27,item,1521345625524b743a73cabc,1,Steak Chalupa Supreme,Taco Bell Canada,360,,21,4.5,0.0,35,520,3,15
+f762ef22-e660-434f-9071-a10ea6691c27,item,1521345635136d0077024b05,1,7-Layer Burrito - Chicken,Taco Bell Canada,430,,17,7.0,0.0,55,890,3,19
+f762ef22-e660-434f-9071-a10ea6691c27,item,1521345653317d5d77d8e9a1,1,Fresco Beef Crunchy Taco,Taco Bell Canada,150,,8,2.5,0.0,15,310,2,6
+f762ef22-e660-434f-9071-a10ea6691c27,item,152134566aa9e3fd741a6665,1,Cinnamon Twists,Taco Bell Canada,170,,6,0.0,0.0,0,210,13,1
+f762ef22-e660-434f-9071-a10ea6691c27,item,152134566fbb489dbe2adb06,1,Cheese Quesadilla,Taco Bell Canada,470,,26,12.0,0.5,50,770,1,21
+f762ef22-e660-434f-9071-a10ea6691c27,item,152134567ad7cb650c09c1dc,1,7-Layer Burrito - Beef,Taco Bell Canada,450,,20,8.0,0.5,35,910,3,16
+f762ef22-e660-434f-9071-a10ea6691c27,item,15213456a2d3c78e8385fb92,1,Beef Soft Taco,Taco Bell Canada,190,,9,4.5,0.0,25,450,1,9
+f762ef22-e660-434f-9071-a10ea6691c27,item,15213456c4a565af9ea34cde,1,Bean Chalupa Supreme,Taco Bell Canada,370,,20,4.0,0.0,15,480,3,11
+f762ef22-e660-434f-9071-a10ea6691c27,item,15213456faa33d4f620cbfb9,1,Bean Cheesy Gordita Crunch,Taco Bell Canada,490,,25,9.0,0.0,35,740,3,20
