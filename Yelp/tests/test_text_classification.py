@@ -1,14 +1,7 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[6]:
-
-
+#import libraries
 import os
 import sys
 sys.path.append('../')
-
-
 import csv
 import pandas as pd
 import numpy as np
@@ -17,11 +10,7 @@ import text_classification
 from text_classification import text_Classification as tc
 
 
-# In[37]:
-
-
-
-class MyTest_Classification(unittest.TestCase):
+class MyTestClassification(unittest.TestCase):
     
     def setup(self):
         print('START Test ...')
