@@ -8,5 +8,5 @@ for ($i = 0; $i -le 3000; $i = $i + 50)
 	$curr = curl -X POST https://api.nutritionix.com/v1_1/search -H 'Content-Type: application/json' -d $query | ConvertFrom-Json
 	$str = $curr.hits | convertto-json
 	$str = $str.Replace('[','').Replace(']','')
-	$str + ',' >> restaurants.json
+	$str + ',' >> restaurants_items.json
 }
