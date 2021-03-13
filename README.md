@@ -13,7 +13,7 @@ With the accelerating pace of life and the surge in demand for healthy lifestyle
 
 <h2><i>Organization of the Project</i></h2> WIP
 The project has the following structure:
-···
+```
 .
 ├── LICENSE
 ├── README.md
@@ -64,7 +64,7 @@ The project has the following structure:
 │       └── text_classification.py
 ├── azure-pipelines.yml
 └── setup.py
-···
+```
 9 directories, 40 files
 <h2><i>Installation</i></h2> WIP
 
