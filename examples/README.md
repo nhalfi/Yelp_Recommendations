@@ -28,6 +28,22 @@ We extracted these files from the Yelp Open Dataset. For more information and ad
 We have already extracted this dataset for you in the data folder (restaurants_items.json). However, if you would like to pull from the Nutritionix API yourself, proceed with the following:
 
 Navigate to the data folder: 
-```cd Yelp/data```
+```cd Yelp/data```  
 Run the download_nutritionix_data.ps1 script:
-```
+``` powershell.exe -file "download_nutritionix_data.ps1"```
+
+You should now see the restaurants_items.json file. Open the file and add an opening bracket at the beginning, ```[```, and replace the final ```,``` with a closing bracket, ```]```. Move the saved restaurants_items.json file to the data folder.
+
+#### 3. Process the Datasets and Run the Text Classification Model
+
+Now that we have pulled the necessary data files, we can run the data_processing module, which cleans the Yelp and Nutritonix datasets and performs text pre-processing that prepares the data to be ingested by our machine learning model. 
+
+Navigate to the data_processing folder and run data_processing.py :   
+```cd ../data_procesing```  
+```python data_processing.py```
+
+Next, navigate to the text_classification folder and run text_classification.py :
+```cd ../text_classification```  
+```python text_classification.py```
+
+Now, the final health scores have been generated for each restaurant in the Yelp_Healthy_restaurant_predictions.csv file in the data folder (this is the data that the app consumes and exposes).
