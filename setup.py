@@ -23,7 +23,14 @@ setuptools.setup(
 'dash-bootstrap-components',
 'dash-core-components',
 'dash-html-components',
-'dash-leaflet'
+'dash-leaflet',
+ 'Flask', 
+'flask-compress',
+'plotly',
+ 'dash-renderer',
+'dash-table',
+'dash-future',
+'Jinja2'                      
 ],
     python_requires=">=3.7"
 )
