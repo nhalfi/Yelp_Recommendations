@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 import unittest
 import text_classification
-from text_classification import text_Classification as tc
+from text_classification import text_classification as tc
 
 
 class MyTestClassification(unittest.TestCase):
