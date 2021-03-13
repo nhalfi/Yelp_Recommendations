@@ -15,9 +15,9 @@ With the accelerating pace of life and the surge in demand for healthy lifestyle
 The project has the following structure: <br>
 
 ```
-  .<br>
-  ├── LICENSE<br>
-  ├── README.md<br>
+  .
+  ├── LICENSE
+  ├── README.md
   ├── Yelp
   │   ├── __init__.py
   │   ├── archive
