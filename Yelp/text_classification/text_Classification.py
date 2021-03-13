@@ -42,13 +42,12 @@ random.seed(100)
 #-----------------------------------------------------------------------------------------------------
 def split_test_train_dataset(res_health,yelp):
     
-      """
-            This function splits res_health (Nutritionix) dataset into test and train dataset, also creates a test dataset from yelp dataset to later generate predictions on
-            - x_train : Training dataset from Nutritionix 
-            - x_test : Test dataset for Nutritionix
-            - yelp_test : Test Dataset from yelp
-        """ 
-    
+    """
+    This function splits res_health (Nutritionix) dataset into test and train dataset, also creates a test dataset from yelp dataset to later generate predictions on
+    - x_train : Training dataset from Nutritionix 
+    - x_test : Test dataset for Nutritionix
+    - yelp_test : Test Dataset from yelp
+    """    
     global x_train, x_test, yelp_test
 
     feature_data = res_health[['filtered_caption','healthy']]
@@ -60,11 +59,10 @@ def split_test_train_dataset(res_health,yelp):
 
 #-----------------------------------------------------------------------------------------------------
 def vectorize_text(x_train, x_test, yelp_test):
-      """
-            - Function to invoke the CountVectorize from the library to vectorize data for model
-            - Return the vecterization data for transformation for training, test and yelp data
-         
-        """
+    """
+    - Function to invoke the CountVectorize from the library to vectorize data for model
+    - Return the vecterization data for transformation for training, test and yelp data  
+    """
     
     global training_data, test_data, yelp_test_data
     
@@ -116,11 +114,10 @@ def fit_and_evaluate_model(training_data, test_data, x_test, label_col):
 #-----------------------------------------------------------------------------------------------------
 def predict_on_Yelp(model, yelp_test_data, yelp):
     
-        """
-            - Function to take fitted naive Bayes model as an input and predict on yelp dataset 
-            - Returns the final yelp dataset with prediction scores of restaurent being healthy or not and generates CSV file that serves as an input to the UI application
-         
-        """
+    """
+    - Function to take fitted naive Bayes model as an input and predict on yelp dataset 
+    - Returns the final yelp dataset with prediction scores of restaurent being healthy or not and generates CSV file that serves as an input to the UI application        
+    """
     
     global yelp_final
     
@@ -147,8 +144,8 @@ def main():
     
     
     try:
-        res_health = pd.read_csv("data/nutritionix_tokenized.csv")
-        yelp = pd.read_csv("data/yelp_final_tokenized.csv")
+        res_health = pd.read_csv("../data/nutritionix_tokenized.csv")
+        yelp = pd.read_csv("../data/yelp_final_tokenized.csv")
         
     except Exception:
         print("Ensure you have cloned the Data folder.")
