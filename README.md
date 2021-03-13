@@ -13,10 +13,11 @@ With the accelerating pace of life and the surge in demand for healthy lifestyle
 
 <h2><i>Organization of the Project</i></h2> WIP
 The project has the following structure: <br>
+
 ```
-  .
-  ├── LICENSE
-  ├── README.md
+  .<br>
+  ├── LICENSE<br>
+  ├── README.md<br>
   ├── Yelp
   │   ├── __init__.py
   │   ├── archive
