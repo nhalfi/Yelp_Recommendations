@@ -13,56 +13,9 @@ With the accelerating pace of life and the surge in demand for healthy lifestyle
 
 <h2><i>Organization of the Project</i></h2> WIP
 The project has the following structure:
-.
-├── LICENSE
-├── README.md
-├── Yelp
-│   ├── __init__.py
-│   ├── archive
-│   │   ├── Yelp_final_predictions
-│   │   │   └── Naive\ Bayes\ Classifier\ -\ Git.ipynb
-│   │   ├── text_preprocessing
-│   │   │   ├── text_preprocessing.ipynb
-│   │   │   ├── text_preprocessing2.ipynb
-│   │   │   └── yelp_final_tokenized.zip
-│   │   ├── training_dataset
-│   │   │   ├── algorithm-apiquery.docx
-│   │   │   ├── resturants.csv
-│   │   │   ├── resturantshealth.csv
-│   │   │   ├── trainingdataset-yelp.ipynb
-│   │   │   ├── trainingdataset.csv
-│   │   │   ├── trainingdataset_tokenized.csv
-│   │   │   └── ~$gorithm-apiquery.docx
-│   │   └── yelp_data_cleaning.ipynb
-│   ├── data
-│   │   ├── Yelp_Healthy_restaurant_predictions.csv
-│   │   ├── nutritionix_health.csv
-│   │   ├── nutritionix_tokenized.csv
-│   │   ├── restaurants_items.json
-│   │   ├── yelp_business_clean.csv
-│   │   ├── yelp_data_cleaning.ipynb
-│   │   ├── yelp_final_tokenized.csv
-│   │   ├── yelp_joined_clean.csv
-│   │   └── yelp_photos_clean.csv
-│   ├── data_processing
-│   │   ├── __init__.py
-│   │   ├── data_processing.py
-│   │   └── download_nutritionix_data.ps1
-│   ├── tests
-│   │   ├── business.json
-│   │   ├── empty.csv
-│   │   ├── logic_test.csv
-│   │   ├── nutrition.json
-│   │   ├── photos.json
-│   │   ├── restaurant_sample.csv
-│   │   ├── restaurant_sample2.csv
-│   │   ├── test_data_processing.py
-│   │   └── test_text_classification.py
-│   └── text_classification
-│       ├── __init__.py
-│       └── text_classification.py
-├── azure-pipelines.yml
-└── setup.py
+
+
+
 
 9 directories, 40 files
 <h2><i>Installation</i></h2> WIP
