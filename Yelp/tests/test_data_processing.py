@@ -9,7 +9,7 @@ nltk.download('stopwords')
 nltk.download('punkt')
 
 
-class test_data_processing(unittest.TestCase):
+class TestDataProcessing(unittest.TestCase):
 
     def test_text_process(self):
         a = pd.read_csv('restaurant_sample.csv')

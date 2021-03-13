@@ -12,13 +12,73 @@ With the accelerating pace of life and the surge in demand for healthy lifestyle
 
 
 <h2><i>Organization of the Project</i></h2> WIP
+The project has the following structure: <br>
 
+```
+  .
+  ├── LICENSE
+  ├── README.md
+  ├── Yelp
+  │   ├── __init__.py
+  │   ├── archive
+  │   │   ├── Yelp_final_predictions
+  │   │   │   └── Naive\ Bayes\ Classifier\ -\ Git.ipynb
+  │   │   ├── text_preprocessing
+  │   │   │   ├── text_preprocessing.ipynb
+  │   │   │   ├── text_preprocessing2.ipynb
+  │   │   │   └── yelp_final_tokenized.zip
+  │   │   ├── training_dataset
+  │   │   │   ├── algorithm-apiquery.docx
+  │   │   │   ├── resturants.csv
+  │   │   │   ├── resturantshealth.csv
+  │   │   │   ├── trainingdataset-yelp.ipynb
+  │   │   │   ├── trainingdataset.csv
+  │   │   │   ├── trainingdataset_tokenized.csv
+  │   │   │   └── ~$gorithm-apiquery.docx
+  │   │   └── yelp_data_cleaning.ipynb
+  │   ├── data
+  │   │   ├── Yelp_Healthy_restaurant_predictions.csv
+  │   │   ├── nutritionix_health.csv
+  │   │   ├── nutritionix_tokenized.csv
+  │   │   ├── restaurants_items.json
+  │   │   ├── yelp_business_clean.csv
+  │   │   ├── yelp_data_cleaning.ipynb
+  │   │   ├── yelp_final_tokenized.csv
+  │   │   ├── yelp_joined_clean.csv
+  │   │   └── yelp_photos_clean.csv
+  │   ├── data_processing
+  │   │   ├── __init__.py
+  │   │   ├── data_processing.py
+  │   │   └── download_nutritionix_data.ps1
+  │   ├── tests
+  │   │   ├── business.json
+  │   │   ├── empty.csv
+  │   │   ├── logic_test.csv
+  │   │   ├── nutrition.json
+  │   │   ├── photos.json
+  │   │   ├── restaurant_sample.csv
+  │   │   ├── restaurant_sample2.csv
+  │   │   ├── test_data_processing.py
+  │   │   └── test_text_classification.py
+  │   └── text_classification
+  │       ├── __init__.py
+  │       └── text_classification.py
+  ├── azure-pipelines.yml
+  └── setup.py
+```
+9 directories, 40 files
 <h2><i>Installation</i></h2> WIP
 
 <h2><i>Examples (How to use Yelp-Recommendations)</i></h2> WIP
 
-<h2><i>Limitations</i></h2> WIP
+<h2><i>Limitations and Future Work</i></h2> 
 
-<h2><i>Acknowledgements</i></h2> WIP
+  * The cities covered by the project are very limited <br>
+  * Additional training datasets that are closer to Yelp <br>
+  * Image classification of photos in addition to text classification <br>
+
+<h2><i>Acknowledgements</i></h2> 
+We are very grateful to our course instructors, Dr. Mark Friedman and Bernease Herman, of the University of Washington, for their valuable guidance of DATA 515 project, which greatly improved our understanding of software design and specific practice skills in data science. <br>
+Our data sources are mainly the public Yelp Open Dataset and the Nutritionix dataset, we sincerely thank these open source data for supporting our project.
 
 <h2><i>Contact (optional)</i></h2> WIP

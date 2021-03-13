@@ -1,36 +1,29 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
+#import libraries
 import os
+import sys
+sys.path.append('../')
 import csv
 import pandas as pd
 import numpy as np
 import unittest
 import text_classification
-from text_classification import text_Classification as tc
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.metrics import confusion_matrix
-from sklearn import metrics
+from text_classification import text_classification as tc
 
 
-# In[ ]:
-
-
-class MyTest_Classification(unittest.TestCase):
+class MyTestClassification(unittest.TestCase):
     
+    def setup(self):
+        print('START Test ...')
+        
+    #...............................................................................................
     def test_split_test_train_dataset(self):
         """
             Test the split_test_train_dataset function
-                - Call the function and validate the return value from the function
-                - If the function is working correctly, it will return the sub-datasets
-                - The sub datasets size will be greater than 0
-                - If the sub datasets are 0 (aka. empty), and exception is raise to fail the test
+            - Call the function and validate the return value from the function
+            - If the function is working correctly, it will return the sub-datasets
+            - The sub datasets size will be greater than 0
+            - If the sub datasets are 0 (aka. empty), and exception is raise to fail the test
         """
-        
         print('START Testing.....')
         print()
         
@@ -54,14 +47,13 @@ class MyTest_Classification(unittest.TestCase):
         print('END Testing.....')
         print()
         
-
-        
+    #...............................................................................................
     def test_vectorize_text(self):
         """
             Test the vectorize_text function
-                - Function to invoke the CountVectorize from the library to vectorize data for model
-                - Return the vecterization data for transformation for training, test and yelp data
-                - An exception will raise when the output is not in a vector format
+            - Function to invoke the CountVectorize from the library to vectorize data for model
+            - Return the vecterization data for transformation for training, test and yelp data
+            - An exception will raise when the output is not in a vector format
         """        
     
         print('START Testing.....')
@@ -105,94 +97,94 @@ class MyTest_Classification(unittest.TestCase):
         print('END Testing.....')
         print()
         
-
+    
+    #...............................................................................................
     
     def test_fit_and_evaluate_model(self):
         """
             Test the fit_and_evaluate_model function
-                - This function takes in the vecterized values and perform fit then evaluate model
-                - It returns a confusion matrix, accuracy, and model
-                - An exception will raise when it fails the model
+            - This function takes in the vecterized values and perform fit then evaluate model
+            - It returns a confusion matrix, accuracy, and model
+            - An exception will raise when it fails the model
         """    
     
-        print('START Testing.....')
-        print()
         
-        data1 = [['salad and greens', 1], ['apple', 1],['saute veggie', 1], ['chicken wings', 0],
-                 ['fried french fries', 0],['Beef Burger', 0],['lamb burger', 0]]
-        
-        data1 = pd.DataFrame(data1, columns = ['caption', 'healthy'])
-        
+        data1 = [['salad and greens', 1], ['apple', 1],['saute veggie', 1], ['chicken wings', 0],['fried french fries', 0],['Beef Burger', 0],['lamb burger', 0]] 
+        data1 = pd.DataFrame(data1, columns = ['caption', 'healthy'])   
         # Create the pandas DataFrame 
-        data2 = [['greens', 1], ['salad', 1],['veggie', 1], ['butter', 0],['chocolate',0],
-                 ['french fries', 0],['Burger', 0]]
-        
+        data2 = [['greens', 1], ['salad', 1],['veggie', 1], ['butter', 0],['chocolate',0],['french fries', 0],['Burger', 0]] 
         data2 = pd.DataFrame(data1, columns = ['caption','healthy']) 
         label_col = data1['healthy']
         
+        from sklearn.feature_extraction.text import CountVectorizer
+
         vector = CountVectorizer()
         vector.fit(data1["caption"])
-        vector = CountVectorizer(vocabulary=vector.vocabulary_)
+        vector = CountVectorizer(vocabulary=vector.vocabulary_) #vocabulary is a parameter, it should be vocabulary_ as it is an attribute.
         training_data = vector.transform(data1["caption"])
         test_data = vector.transform(data2["caption"])
 
-        check_conf_matrix, check_accuracy, check_model = tc.fit_and_evaluate_model(training_data,
-                                                                                   test_data, data2, label_col)
+        check_conf_matrix, check_accuracy, check_model = tc.fit_and_evaluate_model(training_data, test_data, data2, label_col)
 
         print('Dimension of confusion Matrix:', check_conf_matrix.ndim)
         self.assertEqual(check_conf_matrix.ndim, 2, 'Fail: check_conf_matrix has different dimension')
         
+        # We can validate the dame "healthy" in data_3 will be in the same index position of "healthy" in data_1
         print('Model Accuracy: ', check_accuracy)
         self.assertEqual(isinstance(check_accuracy, float), True, 'Fail: Model accuracy out of bounds')
         
-        print('Model results empty: ', (check_model == ""))
+        # We can validate the dame "healthy" in data_3 will be in the same index position of "healthy" in data_1
+        print('Model results empty: ', (check_model== ""))
         self.assertNotEqual(check_model, "", 'Fail: Model not generated')
         
         print('END Testing.....')
         print()
-    
-    
+        
+    #...............................................................................................
     
     def test_predict_on_Yelp(self):
         """
             Test the prediction model
-                - The function will predict the model with Naive Bayes classifier
-                - An exception will raise if the final result is not correctly processed
+            - The function will predict the model with Naive Bayes classifier
+            - An exception will raise if the final result is not correctly processed
         """        
         
-        print('START Testing.....')
-        print()
+   
         
-        data1 = [['salad and greens', 1], ['apple', 1],['saute veggie', 1], ['chicken wings', 0],
-                 ['fried french fries', 0],['Beef Burger', 0],['lamb burger', 0]]
-        
+        data1 = [['salad and greens', 1], ['apple', 1],['saute veggie', 1], ['chicken wings', 0],['fried french fries', 0],['Beef Burger', 0],['lamb burger', 0]]  
         data1 = pd.DataFrame(data1, columns = ['caption', 'healthy'])
         label_col = data1['healthy']
         data2 = ['Fries', 'salad']
         data2 = pd.DataFrame(data2, columns = ['caption'])
         
-        yelp = [['K_9pvEE-fJQyYExAGe0X0g','burger','food','Texas Land & Cattle','7779 Lyles Ln',
-                 'Concord','NC','28027','35.3654956','-80.7120321','3','145','Comfort Food'],
-               ['K_xAGerhgkueX0g','Salad','food','LA health','1234 Hollywood Ln','valley','LA',
-                '28057','35.3655746','-80.71221','2','13','fast Food']]
+        yelp = [['K_9pvEE-fJQyYExAGe0X0g','burger','food','Texas Land & Cattle','7779 Lyles Ln','Concord','NC','28027','35.3654956','-80.7120321','3','145','Comfort Food'],
+               ['K_xAGerhgkueX0g','Salad','food','LA health','1234 Hollywood Ln','valley','LA','28057','35.3655746','-80.71221','2','13','fast Food']]
+        yelp = pd.DataFrame(yelp, columns = ['business_id','caption','label','name','address','city','state','postal_code','latitude','longitude','stars','review_count','categories'])
         
-        yelp = pd.DataFrame(yelp, columns = ['business_id','caption','label','name','address','city',
-                                             'state','postal_code','latitude','longitude','stars',
-                                             'review_count','categories'])
-        
+        from sklearn.feature_extraction.text import CountVectorizer
         vector = CountVectorizer()
         vector.fit(data1["caption"])
-        vector = CountVectorizer(vocabulary=vector.vocabulary_)
+        vector = CountVectorizer(vocabulary=vector.vocabulary_) #vocabulary is a parameter, it should be vocabulary_ as it is an attribute.
         training_data = vector.transform(data1["caption"])
         test_data = vector.transform(data2["caption"])
         
+        from sklearn.naive_bayes import MultinomialNB
+        from sklearn.metrics import confusion_matrix
+        from sklearn import metrics
+        
+        
         model = MultinomialNB().fit(training_data, label_col)
+        
         
         Check_yelp_final = tc.predict_on_Yelp(model, test_data, yelp)
         
         print('Dimension of Final Yelp dataset:', Check_yelp_final.ndim)
         self.assertEqual(Check_yelp_final.ndim, 2, 'Fail: Yelp dataset with predictions not generated')
+
        
+
 if __name__ == '__main__':
     unittest.main()
+
+
 
