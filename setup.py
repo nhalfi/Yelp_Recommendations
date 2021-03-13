@@ -24,6 +24,7 @@ setuptools.setup(
 'dash-core-components',
 'dash-html-components',
 'dash-leaflet',
+'Flask==1.1.2',
 'flask-compress',
 'plotly',
  'dash-renderer',
