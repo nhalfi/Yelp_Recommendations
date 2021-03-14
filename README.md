@@ -11,7 +11,7 @@ With the accelerating pace of life and the surge in demand for healthy lifestyle
 <i> <h4> Nutritionix Dataset </h4></i> The second dataset is the Nutritionix dataset which contains nutrition information from chain restaurants across the US.  We are using it to train our classification model that will assign healthy or unhealthy labels.
 
 
-<h2><i>Organization of the Project</i></h2> WIP
+<h2><i>Organization of the Project</i></h2>
 The project has the following structure: <br>
 
 ```
