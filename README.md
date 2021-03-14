@@ -89,4 +89,4 @@ We are very grateful to our course instructors, Dr. Mark Friedman and Bernease H
 <br>
 Our data sources are mainly the public Yelp Open Dataset and the Nutritionix dataset, we sincerely thank these open sources for supporting our project.
 
-<h2><i>Contact (optional)</i></h2> WIP
+
