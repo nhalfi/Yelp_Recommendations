@@ -35,12 +35,15 @@ stages:
         source antenv/bin/activate
         python -m pip install --upgrade pip
         python setup.py install
-        python -m pip install flake8
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
     - script: |
-        flake .
-        displayName: ‘Run Flake8 linter’  
+        source antenv/bin/activate
+        pip install flake8 
+        ls -l 
+        python -m flake8 ./Yelp
+      workingDirectory: $(projectRoot)
+      displayName: "Run Flake"
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
