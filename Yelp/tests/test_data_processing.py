@@ -61,17 +61,17 @@ class TestDataProcessing(unittest.TestCase):
     def test_load_datasets(self):
         # test non-existent filepaths
         with self.assertRaises(Exception):
-            df1, df2, df3 = dp.load_datasets('../data/test_data.json', 
-                                             '../data/test_photos.json', 
+            df1, df2, df3 = dp.load_datasets('../data/test_data.json',
+                                             '../data/test_photos.json',
                                              '../data/test_restaurants_items.\
                                                 json')
         # two valid filepaths and one invalid
         with self.assertRaises(Exception):
             df1, df2, df3 = dp.load_datasets('business.json', 'photos.json',
-                                           'restaurants_items.json')
+                                             'restaurants_items.json')
 
         # test with valid data that returns correct data type
-        df1, df2, df3 = dp.load_datasets('business.json', 'photos.json', 
+        df1, df2, df3 = dp.load_datasets('business.json', 'photos.json',
                                          'nutrition.json')
         self.assertTrue(type(df1) is pd.DataFrame)
         self.assertTrue(type(df2) is pd.DataFrame)
@@ -83,7 +83,7 @@ class TestDataProcessing(unittest.TestCase):
             dp.output_csv(1, 2, 3)
 
         # pass valid arguments
-        df1, df2, df3 = dp.load_datasets('business.json', 'photos.json', 
+        df1, df2, df3 = dp.load_datasets('business.json', 'photos.json',
                                          'nutrition.json')
         df4 = df3.copy()
         dp.output_csv(df1, df2, df3, df4)

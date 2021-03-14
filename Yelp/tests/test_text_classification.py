@@ -6,8 +6,8 @@ import pandas as pd
 import unittest
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.metrics import confusion_matrix
-from sklearn import metrics
+# from sklearn.metrics import confusion_matrix
+# from sklearn import metrics
 
 
 class MyTestClassification(unittest.TestCase):
@@ -44,9 +44,9 @@ class MyTestClassification(unittest.TestCase):
 
         self.assertGreater(value_x_train.count()[0], 0,
                            'Fail: x_train sub-dataset')
-        self.assertGreater(value_x_test.count()[0], 0, 
+        self.assertGreater(value_x_test.count()[0], 0,
                            'Fail: x_test sub-dataset')
-        self.assertGreater(value_yelp_test.count()[0], 0, 
+        self.assertGreater(value_yelp_test.count()[0], 0,
                            'Fail: yelp_test sub-dataset')
 
         print('END Testing.....')
@@ -126,18 +126,19 @@ class MyTestClassification(unittest.TestCase):
 
         data1 = [['salad and greens', 1], ['apple', 1], ['saute veggie', 1],
                  ['chicken wings', 0], ['fried french fries', 0],
-                 ['Beef Burger', 0], ['lamb burger', 0]] 
-        data1 = pd.DataFrame(data1, columns=['caption', 'healthy'])   
+                 ['Beef Burger', 0], ['lamb burger', 0]]
+        data1 = pd.DataFrame(data1, columns=['caption', 'healthy'])
         # Create the pandas DataFrame
         data2 = [['greens', 1], ['salad', 1], ['veggie', 1], ['butter', 0],
-                 ['chocolate', 0], ['french fries', 0], ['Burger', 0]] 
-        data2 = pd.DataFrame(data1, columns=['caption', 'healthy']) 
+                 ['chocolate', 0], ['french fries', 0], ['Burger', 0]]
+        data2 = pd.DataFrame(data1, columns=['caption', 'healthy'])
         label_col = data1['healthy']
- 
 
         vector = CountVectorizer()
         vector.fit(data1["caption"])
-        vector = CountVectorizer(vocabulary=vector.vocabulary_) # vocabulary is a parameter, it should be vocabulary_ as it is an attribute.
+        vector = CountVectorizer(vocabulary=vector.vocabulary_)
+        # vocabulary is a parameter, it should be vocabulary_
+        # as it is an attribute.
         training_data = vector.transform(data1["caption"])
         test_data = vector.transform(data2["caption"])
 
@@ -190,7 +191,7 @@ class MyTestClassification(unittest.TestCase):
                     '35.3655746', '-80.71221', '2', '13', 'fast Food']]
         yelp = pd.DataFrame(yelp, columns=['business_id', 'caption',
                             'label', 'name', 'address', 'city', 'state',
-                                           'postal_code', 'latitude', 
+                                           'postal_code', 'latitude',
                                            'longitude', 'stars',
                                            'review_count', 'categories'])
 
