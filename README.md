@@ -6,9 +6,9 @@ With the accelerating pace of life and the surge in demand for healthy lifestyle
 
 <h2><i>Data</i></h2>
 
-<i> <h4> Yelp Dataset </h4></i> The main dataset for our project is the public Yelp Open Dataset. This dataset is available to the public in JSON files. The data captures details of almost 209K Businesses across ~10 cities capturing ~ 8M reviews and ~200K pictures. Though original Yelp dataset is rich in many data dimensions, not all the data features are useful, instead, finding the right data features for the job is as important as building an effective model. Our project focuses on the classification of healthy or unhealthy restaurants based on the photos shared by Yelpers. Therefore, business data and photo data are key features for our model. 
+<i> <h4> Yelp Dataset </h4></i> The main dataset for our project is the [public Yelp Open Dataset](https://www.yelp.com/dataset). This dataset is available to the public in JSON files. The data captures details of almost 209K Businesses across ~10 cities capturing ~ 8M reviews and ~200K pictures. Though original Yelp dataset is rich in many data dimensions, not all the data features are useful, instead, finding the right data features for the job is as important as building an effective model. Our project focuses on the classification of healthy or unhealthy restaurants based on the photos shared by Yelpers. Therefore, business data and photo data are key features for our model. 
 
-<i> <h4> Nutritionix Dataset </h4></i> The second dataset is the Nutritionix dataset which contains nutrition information from chain restaurants across the US.  We are using it to train our classification model that will assign healthy or unhealthy labels.
+<i> <h4> Nutritionix Dataset </h4></i> The second dataset is the [Nutritionix dataset](https://www.nutritionix.com/business/api) which contains nutrition information from chain restaurants across the US.  We are using it to train our classification model that will assign healthy or unhealthy labels.
 
 
 <h2><i>Organization of the Project</i></h2>
@@ -86,6 +86,7 @@ To better understand how to use ```Yelp-Recommendations``` , please refer to the
   * Image classification of photos in addition to text classification <br>
 
 <h2><i>Acknowledgements</i></h2> 
+
 We are very grateful to our course instructors, Dr. Mark Friedman and Bernease Herman, of the University of Washington, for their valuable guidance of DATA 515 project, which greatly improved our understanding of software design and specific practice skills in data science. <br>
 <br>
 Our data sources are mainly the public Yelp Open Dataset and the Nutritionix dataset, we sincerely thank these open sources for supporting our project.
