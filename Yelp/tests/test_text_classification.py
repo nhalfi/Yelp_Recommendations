@@ -1,13 +1,11 @@
 #  import module and libraries
 import sys
 sys.path.append('../')
-from text_classification import text_classification as tc
-import pandas as pd
-import unittest
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
-# from sklearn.metrics import confusion_matrix
-# from sklearn import metrics
+from text_classification import text_classification as tc  # noqa: E402
+import pandas as pd  # noqa: E402
+import unittest  # noqa: E402
+from sklearn.feature_extraction.text import CountVectorizer  # noqa: E402
+from sklearn.naive_bayes import MultinomialNB  # noqa: E402
 
 
 class MyTestClassification(unittest.TestCase):
@@ -32,8 +30,8 @@ class MyTestClassification(unittest.TestCase):
         value_x_test = 0
         value_yelp_test = 0
 
-        res_health = pd.read_csv("../data/sample_nutritionix_data.csv")
-        yelp = pd.read_csv("../data/sample_yelp_data.csv")
+        res_health = pd.read_csv("sample_nutritionix_data.csv")
+        yelp = pd.read_csv("sample_yelp_data.csv")
 
         value_x_train, value_x_test, value_yelp_test = \
             tc.split_test_train_dataset(res_health, yelp)

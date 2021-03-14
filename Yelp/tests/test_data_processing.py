@@ -2,9 +2,9 @@
 import unittest
 import sys
 sys.path.append('../')
-from data_processing import data_processing as dp
-import pandas as pd
-import nltk
+from data_processing import data_processing as dp  # noqa: E402
+import pandas as pd  # noqa: E402
+import nltk  # noqa: E402
 nltk.download('stopwords')
 nltk.download('punkt')
 
