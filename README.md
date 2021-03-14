@@ -10,7 +10,7 @@ With the accelerating pace of life and the surge in demand for healthy lifestyle
 
 <i> <h4> Nutritionix Dataset </h4></i> The second dataset is the [Nutritionix dataset](https://www.nutritionix.com/business/api) which contains nutrition information from chain restaurants across the US.  We are using it to train our classification model that will assign healthy or unhealthy labels. <br>
 
-In order to apply these two dataset proeprly, we encourage all users to review [Yelp Dataset: Terms of Service](https://terms.yelp.com/tos/en_us/20200101_en_us/) and the [Nutritionix Dataset: Terms and Conditions](https://www.nutritionix.com/apiterms) for a bette usage experience. 
+In order to apply these two dataset proeprly, we encourage all users to review [Yelp Dataset: Terms of Service](https://terms.yelp.com/tos/en_us/20200101_en_us/) and [Nutritionix Dataset: Terms and Conditions](https://www.nutritionix.com/apiterms) for a bette usage experience. 
 
 
 <h2><i>Organization of the Project</i></h2>
