@@ -67,9 +67,16 @@ The project has the following structure: <br>
   └── setup.py
 ```
 9 directories, 40 files
-<h2><i>Installation</i></h2> WIP
 
 <h2><i>Examples (How to use Yelp-Recommendations)</i></h2> WIP
+To better understand how to use Yelp-Recommendations, please refer to the [usage examples](https://github.com/nhalfi/Yelp_Recommendations/tree/main/examples) provided on this GitHub page. Through the example, you can grasp the basic steps to run this tool as followings:<br>
+
+  * Launching the App
+    OR<br>
+  * Reproducing our Model
+    * Download Extracted Yelp JSON Files
+    * Download Nutritionix Data
+    * Process the Datasets and Run the Text Classification Model
 
 <h2><i>Limitations and Future Work</i></h2> 
 
