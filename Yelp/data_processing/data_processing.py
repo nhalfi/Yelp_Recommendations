@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 # Module: data_processing.py
 # Purpose: clean, transform, and prepare data for modeling
 
@@ -17,15 +11,9 @@ from nltk.stem.porter import PorterStemmer
 nltk.download('stopwords')
 
 
-# In[ ]:
-
-
 class ProcessingError(Exception):
     # raised if output from text_process produces an empty dataframe
     pass
-
-
-# In[ ]:
 
 
 def load_datasets(yp_business_path, yp_photo_path, nutritionix_path):
@@ -51,9 +39,6 @@ def load_datasets(yp_business_path, yp_photo_path, nutritionix_path):
     return(df_business, df_photos, df_nutritionix)
 
 
-# In[ ]:
-
-
 def clean_yelp(df_business, df_photos):
     """
     -function that contains logic filter and join yelp datasets
@@ -64,26 +49,24 @@ def clean_yelp(df_business, df_photos):
 
     df_business['restaurant'] = df_business['categories'].str.contains(
                                 'Restaurants|Food')
-    df_restaurants = df_business[df_business['restaurant']==True]
+    df_restaurants = df_business[df_business['restaurant'] == 'True']
 
     # drop unneeded columns and output to csv
-    df_restaurants = df_restaurants.drop(['is_open','attributes','hours','restaurant'],axis = 1)
+    df_restaurants = df_restaurants.drop(['is_open', 'attributes', 'hours',
+                                         'restaurant'], axis=1)
     # df_restaurants.to_csv('../data/yelp_business_clean.csv')
 
-    #### photo filtering ####
-    df_photos = df_photos[df_photos['business_id'].isin(df_restaurants['business_id'])]
-    df_photos = df_photos[df_photos['label']=="food"]
-    df_photos = df_photos[df_photos['caption']!=""] # exclude records with blank captions
-    # output to csv
-    # df_photos.to_csv('../data/yelp_photos_clean.csv')
+    # ### photo filtering ####
+    df_photos = df_photos[df_photos['business_id'].isin
+                          (df_restaurants['business_id'])]
+    df_photos = df_photos[df_photos['label'] == "food"]
+    df_photos = df_photos[df_photos['caption'] != ""]
+    # exclude records with blank captions
 
     # join dataframes on business_id
-    df_join = df_photos.merge(df_restaurants,how='inner')
+    df_join = df_photos.merge(df_restaurants, how='inner')
 
     return(df_join)
-
-
-# In[ ]:
 
 
 def calculate_health(df):
@@ -106,9 +89,6 @@ def calculate_health(df):
     df2['healthy'] = np.select(conditions, choices, default=1)
 
     return(df2)
-
-
-# In[ ]:
 
 
 def text_process(df, token_col):
@@ -152,9 +132,6 @@ def text_process(df, token_col):
         return(df2)
 
 
-# In[ ]:
-
-
 def output_csv(yelp_join, yelp_tokenized, nutritionix, nutritionix_tokenized):
     """
     -function that outputs intermediate files to csv
@@ -168,9 +145,6 @@ def output_csv(yelp_join, yelp_tokenized, nutritionix, nutritionix_tokenized):
     yelp_tokenized.to_csv('../data/yelp_final_tokenized.csv')
     nutritionix.to_csv('../data/nutritionix_health.csv', index=False)
     nutritionix_tokenized.to_csv('../data/nutritionix_tokenized.csv')
-
-
-# In[ ]:
 
 
 def main():
@@ -204,6 +178,5 @@ def main():
         print(e)
 
 
-if __name__ == "__main__":
+if __name__ == "main":
     main()
-
