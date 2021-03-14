@@ -6,11 +6,11 @@ With the accelerating pace of life and the surge in demand for healthy lifestyle
 
 <h2><i>Data</i></h2>
 
-<i> <h4> Yelp Dataset </h4></i> The main dataset for our project is the [public Yelp Open Dataset](https://www.yelp.com/dataset). This dataset is available to the public in JSON files. The data captures details of almost 209K Businesses across ~10 cities capturing ~ 8M reviews and ~200K pictures. Though original Yelp dataset is rich in many data dimensions, not all the data features are useful, instead, finding the right data features for the job is as important as building an effective model. Our project focuses on the classification of healthy or unhealthy restaurants based on the photos shared by Yelpers. Therefore, business data and photo data are key features for our model. 
+<i> <h4> Yelp Dataset </h4></i> The main dataset for our project is the public [Yelp Open Dataset](https://www.yelp.com/dataset). This dataset is available to the public in JSON files. The data captures details of almost 209K Businesses across ~10 cities capturing ~ 8M reviews and ~200K pictures. Though original Yelp dataset is rich in many data dimensions, not all the data features are useful, instead, finding the right data features for the job is as important as building an effective model. Our project focuses on the classification of healthy or unhealthy restaurants based on the photos shared by Yelpers. Therefore, business data and photo data are key features for our model. 
 
 <i> <h4> Nutritionix Dataset </h4></i> The second dataset is the [Nutritionix dataset](https://www.nutritionix.com/business/api) which contains nutrition information from chain restaurants across the US.  We are using it to train our classification model that will assign healthy or unhealthy labels. <br>
 
-In order to apply these two dataset proeprly, we encourage all users to review [Yelp Dataset: Terms of Service](https://terms.yelp.com/tos/en_us/20200101_en_us/) and the [Terms and Conditions of Nutritionix dataset](https://www.nutritionix.com/apiterms) for a bette usage experience. 
+In order to apply these two dataset proeprly, we encourage all users to review [Yelp Dataset: Terms of Service](https://terms.yelp.com/tos/en_us/20200101_en_us/) and the [Nutritionix Dataset: Terms and Conditions](https://www.nutritionix.com/apiterms) for a bette usage experience. 
 
 
 <h2><i>Organization of the Project</i></h2>
