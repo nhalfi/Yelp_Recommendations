@@ -1,8 +1,8 @@
-import unittest
-import sys
+import sys  # noqa: E402
 sys.path.append('../')
-import pandas as pd
-from data.restaurants_dao import get_yelp_dataframe
+from data.restaurants_dao import get_yelp_dataframe  # noqa: E402
+import unittest  # noqa: E402
+import pandas as pd  # noqa: E402
 
 
 class TestFilter(unittest.TestCase):
