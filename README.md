@@ -70,7 +70,7 @@ The project has the following structure: <br>
 
 <h2><i>Examples (How to use Yelp-Recommendations)</i></h2> 
 
-To better understand how to use ```Yelp-Recommendations``` , please refer to the[usage examples](https://github.com/nhalfi/Yelp_Recommendations/tree/main/examples) provided on this GitHub page. Through the example, you can grasp the basic steps to run this tool as followings:
+To better understand how to use ```Yelp-Recommendations``` , please refer to the [usage examples](https://github.com/nhalfi/Yelp_Recommendations/tree/main/examples) provided on this GitHub page. Through the example, you can grasp the basic steps to run this tool as followings:
 
   * Launching the App <br>
     OR<br>
