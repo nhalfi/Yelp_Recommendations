@@ -68,10 +68,10 @@ The project has the following structure: <br>
 ```
 9 directories, 40 files
 
-<h2><i>Examples (How to use Yelp-Recommendations)</i></h2> WIP
-To better understand how to use Yelp-Recommendations, please refer to the [usage examples](https://github.com/nhalfi/Yelp_Recommendations/tree/main/examples) provided on this GitHub page. Through the example, you can grasp the basic steps to run this tool as followings:<br>
+<h2><i>Examples (How to use Yelp-Recommendations)</i></h2> 
+To better understand how to use `Yelp-Recommendations`, please refer to the[usage examples](https://github.com/nhalfi/Yelp_Recommendations/tree/main/examples) provided on this GitHub page. Through the example, you can grasp the basic steps to run this tool as followings:<br>
 
-  * Launching the App
+  * Launching the App <br>
     OR<br>
   * Reproducing our Model
     * Download Extracted Yelp JSON Files
@@ -86,6 +86,7 @@ To better understand how to use Yelp-Recommendations, please refer to the [usage
 
 <h2><i>Acknowledgements</i></h2> 
 We are very grateful to our course instructors, Dr. Mark Friedman and Bernease Herman, of the University of Washington, for their valuable guidance of DATA 515 project, which greatly improved our understanding of software design and specific practice skills in data science. <br>
+<br>
 Our data sources are mainly the public Yelp Open Dataset and the Nutritionix dataset, we sincerely thank these open source data for supporting our project.
 
 <h2><i>Contact (optional)</i></h2> WIP
