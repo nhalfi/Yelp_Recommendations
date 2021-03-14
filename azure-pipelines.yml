@@ -39,7 +39,7 @@ stages:
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
     - script: |
-        python3 -m flake8
+        python -m flake8
         displayName: ‘Run Flake8 linter’  
     - task: ArchiveFiles@2
       displayName: 'Archive files'
