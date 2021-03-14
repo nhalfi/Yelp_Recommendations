@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="nhalfi", # Replace with your own username
+    name="nhalfi",
     version="0.0.1",
     author="nhalfi",
     description="Healthy Restaurants on Yelp",
@@ -19,18 +19,12 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     packages=['Yelp'],
-    install_requires = ['pandas','numpy','sklearn','nltk','pandas', 'dash==1.19.0',
-'dash-bootstrap-components',
-'dash-core-components',
-'dash-html-components',
-'dash-leaflet',
-'Flask==1.1.2',
-'flask-compress',
-'plotly',
- 'dash-renderer',
-'dash-table',
-'future',
-'Jinja2'                      
-],
+    install_requires=['pandas', 'numpy', 'sklearn', 'nltk', 'pandas',
+                      'dash==1.19.0', 'dash-bootstrap-components',
+                      'dash-core-components', 'dash-html-components',
+                      'dash-leaflet', 'Flask==1.1.2',
+                      'flask-compress', 'plotly',
+                      'dash-renderer', 'dash-table',
+                      'future', 'Jinja2'],
     python_requires=">=3.7"
 )
