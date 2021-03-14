@@ -32,8 +32,8 @@ class MyTestClassification(unittest.TestCase):
         value_x_test = 0
         value_yelp_test = 0
 
-        res_health = pd.read_csv("../data/nutritionix_tokenized.csv")
-        yelp = pd.read_csv("../data/yelp_final_tokenized.csv")
+        res_health = pd.read_csv("../data/sample_nutritionix_data.csv")
+        yelp = pd.read_csv("../data/sample_yelp_data.csv")
 
         value_x_train, value_x_test, value_yelp_test = \
             tc.split_test_train_dataset(res_health, yelp)
