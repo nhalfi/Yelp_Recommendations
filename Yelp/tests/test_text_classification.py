@@ -2,6 +2,7 @@
 import sys
 sys.path.append('../')
 from text_classification import text_classification as tc  # noqa: E402
+# ignoring E402 because need import sys and sys.path to access submodule
 import pandas as pd  # noqa: E402
 import unittest  # noqa: E402
 from sklearn.feature_extraction.text import CountVectorizer  # noqa: E402

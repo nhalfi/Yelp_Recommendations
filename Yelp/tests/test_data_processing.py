@@ -3,6 +3,7 @@ import unittest
 import sys
 sys.path.append('../')
 from data_processing import data_processing as dp  # noqa: E402
+# ignoring E402 because need import sys and sys.path to access submodule
 import pandas as pd  # noqa: E402
 import nltk  # noqa: E402
 nltk.download('stopwords')
