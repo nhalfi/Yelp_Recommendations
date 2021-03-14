@@ -34,8 +34,10 @@ stages:
         python -m venv antenv
         source antenv/bin/activate
         python -m pip install --upgrade pip
-        #pip install setup
         python setup.py install
+        python -m pip install flake8
+        flake8 .
+        displayName: 'Run lint tests'
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
     - task: ArchiveFiles@2
