@@ -88,6 +88,6 @@ To better understand how to use ```Yelp-Recommendations``` , please refer to the
 <h2><i>Acknowledgements</i></h2> 
 We are very grateful to our course instructors, Dr. Mark Friedman and Bernease Herman, of the University of Washington, for their valuable guidance of DATA 515 project, which greatly improved our understanding of software design and specific practice skills in data science. <br>
 <br>
-Our data sources are mainly the public Yelp Open Dataset and the Nutritionix dataset, we sincerely thank these open source data for supporting our project.
+Our data sources are mainly the public Yelp Open Dataset and the Nutritionix dataset, we sincerely thank these open sources for supporting our project.
 
 <h2><i>Contact (optional)</i></h2> WIP
