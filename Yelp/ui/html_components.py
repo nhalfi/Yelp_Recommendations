@@ -1,11 +1,6 @@
 import dash_core_components as dcc
 import dash_bootstrap_components as dbc
-
-import plotly.graph_objects as go
-import pandas as pd 
-import numpy as np
-import dash_table
-import dash_leaflet as dl 
+import dash_leaflet as dl
 import dash_html_components as html
 import dash_leaflet.express as dlx
 
@@ -33,10 +28,14 @@ icon = {
     "shadowUrl": "https://leafletjs.com/examples/custom-icons/leaf-shadow.png",
     "iconSize": [38, 95],  # size of the icon
     "shadowSize": [50, 64],  # size of the shadow
-    "iconAnchor": [22,94,],  # point of the icon which will correspond to marker's location
+    # point of the icon which will correspond to marker's location
+    "iconAnchor": [22, 94, ],
     "shadowAnchor": [4, 62],  # the same for the shadow
-    "popupAnchor": [-3,-76,],  # point from which the popup should open relative to the iconAnchor
+    # point from which the popup should open relative to the iconAnchor
+    "popupAnchor": [-3, -76, ],
 }
+
+
 class ModelCoverter:
     def __init__(self, df):
         self.df = df
@@ -46,7 +45,7 @@ class ModelCoverter:
         cities_groups_all = []
         if cities:
             cities_groups_all = [
-                {'label' : k, 'value' : k} for k in sorted(cities)
+                {'label': k, 'value': k} for k in sorted(cities)
                 ]
         return cities_groups_all
 
@@ -55,7 +54,7 @@ class ModelCoverter:
         states_groups_all = []
         if states:
             states_groups_all = [
-                {'label' : k, 'value' : k} for k in sorted(states)
+                {'label': k, 'value': k} for k in sorted(states)
                 ]
         return states_groups_all
 
@@ -65,7 +64,11 @@ class ModelCoverter:
             for item in dicts:
                 item["tooltip"] = item["name"]  # bind tooltip
                 item["popup"] = item["healthy_percent"]
-            geojson = dlx.dicts_to_geojson(dicts, lon='longitude', lat='latitude')
+            geojson = dlx.dicts_to_geojson(
+                dicts,
+                lon='longitude',
+                lat='latitude'
+                )
             return geojson
 
     def get_categories(self):
@@ -74,9 +77,12 @@ class ModelCoverter:
             for category in csv_category.split[',']:
                 categories.add(category)
         return list(categories)
-    
-    def get_restaurant_cards(self, limit = 20):
-        sorted_df = self.df.sort_values(by=['prediction_score'], ascending=False).head(limit)
+
+    def get_restaurant_cards(self, limit=20):
+        sorted_df = self.df.sort_values(
+            by=['prediction_score'],
+            ascending=False
+            ).head(limit)
         cards = []
         for _, row in sorted_df.iterrows():
             card_content = [
@@ -97,57 +103,81 @@ class ModelCoverter:
             card_columns.append(dbc.Card(card, outline=True, color="primary"))
         return card_columns
 
+
 class Components:
 
     @staticmethod
     def get_leaflet_map(geojson):
-        
+
         return html.Div([
-            dl.Map(center=[39, -98], zoom=4,children=[
+            dl.Map(center=[39, -98], zoom=4, children=[
                 dl.TileLayer(),
-                dl.GeoJSON(data=geojson,
-                cluster=True, 
-                id="geojson", 
-                zoomToBounds=True,
-                zoomToBoundsOnClick=True, 
-                superClusterOptions={"radius": 100})
-            ] )
+                dl.GeoJSON(
+                    data=geojson,
+                    cluster=True,
+                    id="geojson",
+                    zoomToBounds=True,
+                    zoomToBoundsOnClick=True,
+                    superClusterOptions={"radius": 100})
+                ])
             ], id='map',
-            style={'width': '100%', 'height': '50vh', 'margin': "auto", "display": "block", "position": "relative"})
+            style={
+                'width': '100%',
+                'height': '50vh',
+                'margin': "auto",
+                "display": "block",
+                "position": "relative"
+                })
 
     @staticmethod
     def get_cities_list(cities):
-        return dcc.Dropdown(id = 'cities-dropdown',
-        options = cities,
-        value = [''],
-        multi = True,
-        placeholder = "Select Cities",
-        style = {'font-size': '13px', 'white-space': 'nowrap', 'text-overflow': 'ellipsis'}
+        return dcc.Dropdown(
+            id='cities-dropdown',
+            options=cities,
+            value=[''],
+            multi=True,
+            placeholder="Select Cities",
+            style={
+                'font-size': '13px',
+                'white-space': 'nowrap',
+                'text-overflow': 'ellipsis'
+                }
         )
 
     @staticmethod
     def get_states_list(states):
-        return dcc.Dropdown(id = 'states-dropdown',
-        options = states,
-        value = [''],
-        multi = True,
-        placeholder = "Select State",
-        style = {'font-size': '13px', 'white-space': 'nowrap', 'text-overflow': 'ellipsis'}
+        return dcc.Dropdown(
+            id='states-dropdown',
+            options=states,
+            value=[''],
+            multi=True,
+            placeholder="Select State",
+            style={
+                'font-size': '13px',
+                'white-space': 'nowrap',
+                'text-overflow': 'ellipsis'
+                }
         )
 
     @staticmethod
     def get_categories_list(categories):
-        return dcc.Dropdown(id = 'categories-dropdown',
-        options = categories,
-        value = ['All'],
-        multi = True,
-        placeholder = "Select State",
-        style = {'font-size': '13px', 'white-space': 'nowrap', 'text-overflow': 'ellipsis'}
+        return dcc.Dropdown(
+            id='categories-dropdown',
+            options=categories,
+            value=['All'],
+            multi=True,
+            placeholder="Select State",
+            style={
+                'font-size': '13px',
+                'white-space': 'nowrap',
+                'text-overflow': 'ellipsis'
+                }
         )
-    
+
     @staticmethod
     def get_ratings_radioitems():
-        return dcc.RadioItems(id='ratings',
+        return dcc.RadioItems(
+            id='ratings',
             options=[
                 {'label': '5 Stars', 'value': 5},
                 {'label': '4 stars and up', 'value': 4},
@@ -155,16 +185,22 @@ class Components:
                 {'label': '2 stars and up', 'value': 2},
                 {'label': '1 stars and up', 'value': 1},
                 ],
-                )  
+        )
+
     @staticmethod
-    def get_healthy_restaurant_cards(cards, limit=10):    
+    def get_healthy_restaurant_cards(cards, limit=10):
         return dbc.CardColumns(cards, id='restaurant_cards')
-    
+
     @staticmethod
     def get_text_input():
-        return  html.Div(
+        return html.Div(
             [
-                dbc.Input(id="input", placeholder="Type something...", type="text", debounce=True),
+                dbc.Input(
+                    id="input",
+                    placeholder="Type something...",
+                    type="text",
+                    debounce=True
+                ),
                 html.Br(),
                 html.P(id="output"),
             ])
@@ -189,8 +225,9 @@ class Components:
                 80: {'label': '80'},
                 90: {'label': '90'},
                 100: {'label': '100', 'style': {'color': '#77b0b1'}}
-    }
-    )
+            }
+        )
+
 
 def get_initial_view(model_converter):
     geojson = model_converter.get_cluster_makers()
@@ -201,8 +238,10 @@ def get_initial_view(model_converter):
             dbc.Nav(
                 [
                     Components.get_text_input(),
-                    Components.get_states_list(model_converter.get_unique_states()) ,
-                    Components.get_cities_list(model_converter.get_unique_cities()),
+                    Components.get_states_list(
+                        model_converter.get_unique_states()),
+                    Components.get_cities_list(
+                        model_converter.get_unique_cities()),
                     html.Br(),
                     html.Div(
                         [
@@ -215,7 +254,6 @@ def get_initial_view(model_converter):
                             html.P("Ratings"),
                             Components.get_ratings_radioitems()
                         ])
-                    
                 ],
                 vertical=True,
                 pills=True,
@@ -229,23 +267,23 @@ def get_initial_view(model_converter):
         Components.get_leaflet_map(geojson),
     ], id="page-content", style=CONTENT_STYLE)
 
-
     body = dbc.Container(
         [
-        dbc.Row(
+            dbc.Row(
                 dbc.Col(
                     [
                         map_restaurants
                     ]
                 ),
-        ),
-        dbc.Row(
+            ),
+            dbc.Row(
                 dbc.Col(
                     [
-                        Components.get_healthy_restaurant_cards(model_converter.get_restaurant_cards())
+                        Components.get_healthy_restaurant_cards(
+                            model_converter.get_restaurant_cards())
                     ]
                 ),
-        )
+            )
         ],
-    ) 
-    return html.Div([sidebar,body])
+    )
+    return html.Div([sidebar, body])
