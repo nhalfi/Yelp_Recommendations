@@ -6,67 +6,63 @@ With the accelerating pace of life and the surge in demand for healthy lifestyle
 
 <h2><i>Data</i></h2>
 
-<i> <h4> Yelp Dataset </h4></i> The main dataset for our project is the [public Yelp Open Dataset](https://www.yelp.com/dataset). This dataset is available to the public in JSON files. The data captures details of almost 209K Businesses across ~10 cities capturing ~ 8M reviews and ~200K pictures. Though original Yelp dataset is rich in many data dimensions, not all the data features are useful, instead, finding the right data features for the job is as important as building an effective model. Our project focuses on the classification of healthy or unhealthy restaurants based on the photos shared by Yelpers. Therefore, business data and photo data are key features for our model. 
+<i> <h4> Yelp Dataset </h4></i> The main dataset for our project is the public [Yelp Open Dataset](https://www.yelp.com/dataset). This dataset is available to the public in JSON files. The data captures details of almost 209K Businesses across ~10 cities capturing ~ 8M reviews and ~200K pictures. Though original Yelp dataset is rich in many data dimensions, not all the data features are useful, instead, finding the right data features for the job is as important as building an effective model. Our project focuses on the classification of healthy or unhealthy restaurants based on the photos shared by Yelpers. Therefore, business data and photo data are key features for our model. 
 
-<i> <h4> Nutritionix Dataset </h4></i> The second dataset is the [Nutritionix dataset](https://www.nutritionix.com/business/api) which contains nutrition information from chain restaurants across the US.  We are using it to train our classification model that will assign healthy or unhealthy labels.
+<i> <h4> Nutritionix Dataset </h4></i> The second dataset is the [Nutritionix dataset](https://www.nutritionix.com/business/api) which contains nutrition information from chain restaurants across the US.  We are using it to train our classification model that will assign healthy or unhealthy labels. <br>
+
+In order to apply these two dataset proeprly, we encourage all users to review [Yelp Dataset: Terms of Service](https://terms.yelp.com/tos/en_us/20200101_en_us/) and [Nutritionix Dataset: Terms and Conditions](https://www.nutritionix.com/apiterms) for a bette usage experience. 
 
 
 <h2><i>Organization of the Project</i></h2>
-The project has the following structure: <br>
+The project has the following structure (8 directories, 36 files): <br>
 
 ```
   .
-  ├── LICENSE
-  ├── README.md
-  ├── Yelp
-  │   ├── __init__.py
-  │   ├── archive
-  │   │   ├── Yelp_final_predictions
-  │   │   │   └── Naive\ Bayes\ Classifier\ -\ Git.ipynb
-  │   │   ├── text_preprocessing
-  │   │   │   ├── text_preprocessing.ipynb
-  │   │   │   ├── text_preprocessing2.ipynb
-  │   │   │   └── yelp_final_tokenized.zip
-  │   │   ├── training_dataset
-  │   │   │   ├── algorithm-apiquery.docx
-  │   │   │   ├── resturants.csv
-  │   │   │   ├── resturantshealth.csv
-  │   │   │   ├── trainingdataset-yelp.ipynb
-  │   │   │   ├── trainingdataset.csv
-  │   │   │   ├── trainingdataset_tokenized.csv
-  │   │   │   └── ~$gorithm-apiquery.docx
-  │   │   └── yelp_data_cleaning.ipynb
-  │   ├── data
-  │   │   ├── Yelp_Healthy_restaurant_predictions.csv
-  │   │   ├── nutritionix_health.csv
-  │   │   ├── nutritionix_tokenized.csv
-  │   │   ├── restaurants_items.json
-  │   │   ├── yelp_business_clean.csv
-  │   │   ├── yelp_data_cleaning.ipynb
-  │   │   ├── yelp_final_tokenized.csv
-  │   │   ├── yelp_joined_clean.csv
-  │   │   └── yelp_photos_clean.csv
-  │   ├── data_processing
-  │   │   ├── __init__.py
-  │   │   ├── data_processing.py
-  │   │   └── download_nutritionix_data.ps1
-  │   ├── tests
-  │   │   ├── business.json
-  │   │   ├── empty.csv
-  │   │   ├── logic_test.csv
-  │   │   ├── nutrition.json
-  │   │   ├── photos.json
-  │   │   ├── restaurant_sample.csv
-  │   │   ├── restaurant_sample2.csv
-  │   │   ├── test_data_processing.py
-  │   │   └── test_text_classification.py
-  │   └── text_classification
-  │       ├── __init__.py
-  │       └── text_classification.py
-  ├── azure-pipelines.yml
-  └── setup.py
+└── Yelp_Recommendations-main
+    ├── LICENSE
+    ├── README.md
+    ├── Yelp
+    │   ├── __init__.py
+    │   ├── app.py
+    │   ├── data
+    │   │   ├── Yelp_Healthy_restaurant_predictions.csv
+    │   │   ├── __init__.py
+    │   │   ├── nutritionix_health.csv
+    │   │   ├── nutritionix_tokenized.csv
+    │   │   ├── restaurants_dao.py
+    │   │   ├── yelp_business_clean.csv
+    │   │   ├── yelp_final_tokenized.csv
+    │   │   ├── yelp_joined_clean.csv
+    │   │   └── yelp_photos_clean.csv
+    │   ├── data_processing
+    │   │   ├── __init__.py
+    │   │   ├── data_processing.py
+    │   │   └── download_nutritionix_data.ps1
+    │   ├── tests
+    │   │   ├── __init__.py
+    │   │   ├── business.json
+    │   │   ├── empty.csv
+    │   │   ├── logic_test.csv
+    │   │   ├── nutrition.json
+    │   │   ├── photos.json
+    │   │   ├── restaurant_sample.csv
+    │   │   ├── restaurant_sample2.csv
+    │   │   ├── sample_nutritionix_data.csv
+    │   │   ├── sample_yelp_data.csv
+    │   │   ├── test_data_processing.py
+    │   │   ├── test_restaurants_dao.py
+    │   │   └── test_text_classification.py
+    │   ├── text_classification
+    │   │   ├── __init__.py
+    │   │   └── text_classification.py
+    │   └── ui
+    │       ├── __init__.py
+    │       └── html_components.py
+    ├── azure-pipelines.yml
+    ├── examples
+    │   └── README.md
+    └── setup.py
 ```
-9 directories, 40 files
 
 <h2><i>Examples (How to use Yelp-Recommendations)</i></h2> 
 
