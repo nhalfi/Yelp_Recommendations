@@ -18,7 +18,7 @@ The Yelp Open Dataset is publicly accessible and allows public use for academic 
 The project has the following structure (8 directories, 36 files): <br>
 
 ```
-  .
+  
 └── Yelp_Recommendations-main
     ├── LICENSE
     ├── README.md
@@ -67,24 +67,24 @@ The project has the following structure (8 directories, 36 files): <br>
 
 <h2>Installation and Running Tests</h2> 
 First, you will need to clone this repository:  
-```git clone https://github.com/nhalfi/Yelp_Recommendations.git```
+```git clone https://github.com/nhalfi/Yelp_Recommendations.git```  
 
-Next, navigate to the Yelp_Recommendations directory and run the setup.py script, which installs prerequisite packages:
-``` cd Yelp_Recommendations ```  
-``` python setup.py install ```  
+Next, navigate to the Yelp_Recommendations directory and run the setup.py script, which installs prerequisite packages:  
+```cd Yelp_Recommendations ```    
+```python setup.py install ```    
 
-To execute our unit tests, navigate to our tests folder and run the following:
-``` cd Yelp/tests```
-``` python test_download_nutritionix_data.py```
-``` python test_data_processing.py```
-``` python test_text_classification.py```
-``` python test_restaurants_dao.py```
+To execute our unit tests, navigate to our tests folder and run the following:  
+``` cd Yelp/tests```  
+``` python test_download_nutritionix_data.py```  
+``` python test_data_processing.py```  
+``` python test_text_classification.py```  
+``` python test_restaurants_dao.py```  
 
 
 
 <h2>Examples (How to use Yelp-Recommendations)</h2> 
 
-To better understand how to use ```Yelp-Recommendations``` , please refer to the [usage examples](https://github.com/nhalfi/Yelp_Recommendations/tree/main/examples) provided on this GitHub page. Through the example, you can grasp the basic steps to run this tool as followings:
+To better understand how to use ```Yelp-Recommendations``` , please refer to the [usage examples](https://github.com/nhalfi/Yelp_Recommendations/tree/main/examples) provided in this repository, which will help with the following:
 
   * Launching and Interacting with the App <br>
   * Reproducing our Model
