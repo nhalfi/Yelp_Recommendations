@@ -25,10 +25,12 @@ We extracted these files from the Yelp Open Dataset. For more information and ad
 
 #### 2. Download Nutritionix Data
 
+Due to Nutritionix's Terms of Use, we are unable to cache their data in our repository. However, we have provided a script that performs the necessary API call.
+
 Navigate to the data_processing folder:   
 ```cd Yelp/data_processing```  
 Run the download_nutritionix_data.py script:  
-``` python download_nutritionix_data.py"```
+``` python download_nutritionix_data.py```
 
 You should now see the restaurants_items.json file in the data folder. 
 Please refer to the following [link](https://www.nutritionix.com/business/api) for more information on the Nutritionix API.
