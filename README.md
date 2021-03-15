@@ -64,6 +64,8 @@ The project has the following structure (8 directories, 36 files): <br>
     └── setup.py
 ```
 
+<h2><i>Installation</i></h2> WIP
+
 <h2><i>Examples (How to use Yelp-Recommendations)</i></h2> 
 
 To better understand how to use ```Yelp-Recommendations``` , please refer to the [usage examples](https://github.com/nhalfi/Yelp_Recommendations/tree/main/examples) provided on this GitHub page. Through the example, you can grasp the basic steps to run this tool as followings:
@@ -87,4 +89,4 @@ We are very grateful to our course instructors, Dr. Mark Friedman and Bernease H
 <br>
 Our data sources are mainly the public Yelp Open Dataset and the Nutritionix dataset, we sincerely thank these open sources for supporting our project.
 
-<h2><i>Contact (optional)</i></h2> WIP
+
