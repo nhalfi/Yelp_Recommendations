@@ -1,19 +1,20 @@
 # Yelp_Recommendations
-Final project for DATA 515 Software Design for Data Science course at University of Washington
+Final project for DATA 515 Software Design for Data Science course at University of Washington (Winter 2021)
 
-<h2><i> Introduction </i></h2>
-With the accelerating pace of life and the surge in demand for healthy lifestyles, more and more people have a need for nearby healthy restaurants. However, few tools incorporate this dimension into restaurant searches. The goal of our project is to provide a way for users to discover healthy restaurants within the existing Yelp directory. Using Yelp data, our platform will provide restaurant health ratings to eaters based on the results of our machine learning model. The relevant  data in our project consists of business data and photo metadata, including captions. We will apply Natural Language Processing, Text Classification, and Machine Learning techniques  to analyze the descriptive text in the captions of food photos to determine whether the food is healthy or not. 
+<h2> Introduction </h2>
+With the increasing emphasis on health diet and lifestyle, more and more people have a need for nearby healthy restaurants. However, few tools incorporate this dimension into restaurant searches. The goal of our project is to provide a way for users to discover healthy restaurants within the existing Yelp directory. We achieved this by providing restaurant health ratings to eaters based on the results of our machine learning model that applies Natural Language Processing and Text Classification techniques. Specifically, we analyzed the descriptive text in the captions of food photos on Yelp to infer whether the food is healthy or not. We then averaged the scores for a given restaurant to provide a health score ranging from 0-100%.
 
-<h2><i>Data</i></h2>
+<h2>Data</h2>
 
-<i> <h4> Yelp Dataset </h4></i> The main dataset for our project is the public [Yelp Open Dataset](https://www.yelp.com/dataset). This dataset is available via JSON files. The data captures details of almost 209K Businesses across ~10 cities capturing ~ 8M reviews and ~200K pictures. In our project, we the business details and photo captions as features to classify healthy or unhealthy restaurants based on the photos shared by Yelpers. 
+<i> <h4> Yelp Dataset </h4></i> The main dataset for our project is the public [Yelp Open Dataset](https://www.yelp.com/dataset). This dataset is available via JSON files. The data captures details of almost 209K Businesses across ~10 cities capturing ~ 8M reviews and ~200K pictures. In our project, we leveraged the business details and photo captions as features to classify healthy or unhealthy restaurants based on the photos shared by Yelpers. 
 
-<i> <h4> Nutritionix Dataset </h4></i> The second dataset is the [Nutritionix dataset](https://www.nutritionix.com/business/api) which contains nutrition information from chain restaurants across the US.  We are using it to train our classification model that will assign healthy or unhealthy labels. <br>
+<i> <h4> Nutritionix Dataset </h4></i> The second dataset is the [Nutritionix dataset](https://www.nutritionix.com/business/api) which contains nutrition information from chain restaurants across the US.  We used this dataset to train our classification model that assigns healthy or unhealthy labels. To achieve this, we performed feature engineering on the dataset to generate training labels based on the nutrition information for each item. To learn more about the nutrition logic used, please refer to our Component Documentation. <br>
 
-In order to apply these two dataset proeprly, we encourage all users to review [Yelp Dataset: Terms of Service](https://terms.yelp.com/tos/en_us/20200101_en_us/) and [Nutritionix Dataset: Terms and Conditions](https://www.nutritionix.com/apiterms) for a bette usage experience. 
+<i> <h4> Terms of Use </h4></i>
+The Yelp Open Dataset is publicly accessible and allows public use for academic purposes. The Nutritionix API is publicly accessible, but does not allow caching of its data. Therefore, we have not stored any of its data in our repository, but we provide instructions on how to pull the data locally in our Examples folder. We encourage all users to review [Yelp Dataset: Terms of Service](https://terms.yelp.com/tos/en_us/20200101_en_us/) and [Nutritionix Dataset: Terms and Conditions](https://www.nutritionix.com/apiterms) for more information.
 
 
-<h2><i>Organization of the Project</i></h2>
+<h2>Organization of the Project</h2>
 The project has the following structure (8 directories, 36 files): <br>
 
 ```
@@ -64,29 +65,43 @@ The project has the following structure (8 directories, 36 files): <br>
     └── setup.py
 ```
 
-<h2><i>Installation</i></h2> WIP
+<h2>Installation and Running Tests</h2> 
+First, you will need to clone this repository:  
+```git clone https://github.com/nhalfi/Yelp_Recommendations.git```
 
-<h2><i>Examples (How to use Yelp-Recommendations)</i></h2> 
+Next, navigate to the Yelp_Recommendations directory and run the setup.py script, which installs prerequisite packages:
+``` cd Yelp_Recommendations ```  
+``` python setup.py install ```  
+
+To execute our unit tests, navigate to our tests folder and run the following:
+``` cd Yelp/tests```
+``` python test_download_nutritionix_data.py```
+``` python test_data_processing.py```
+``` python test_text_classification.py```
+``` python test_restaurants_dao.py```
+
+
+
+<h2>Examples (How to use Yelp-Recommendations)</h2> 
 
 To better understand how to use ```Yelp-Recommendations``` , please refer to the [usage examples](https://github.com/nhalfi/Yelp_Recommendations/tree/main/examples) provided on this GitHub page. Through the example, you can grasp the basic steps to run this tool as followings:
 
-  * Launching the App <br>
-    OR
+  * Launching and Interacting with the App <br>
   * Reproducing our Model
     * Download Extracted Yelp JSON Files
     * Download Nutritionix Data
     * Process the Datasets and Run the Text Classification Model
 
-<h2><i>Limitations and Future Work</i></h2> 
+<h2>Limitations and Future Work</h2> 
 
-  * The cities covered by the project are very limited <br>
-  * Additional training datasets that are closer to Yelp <br>
-  * Image classification of photos in addition to text classification <br>
+  * We were limited to specific cities included in the Yelp dataset <br>
+  * We would like to explore additional training datasets that are more similar to Yelp's data <br>
+  * We would like to leverage the photos in the Yelp dataset to perform image classification to determine health scores, in addition to text classification <br>
 
-<h2><i>Acknowledgements</i></h2> 
+<h2>Acknowledgements</h2> 
 
-We are very grateful to our course instructors, Dr. Mark Friedman and Bernease Herman, of the University of Washington, for their valuable guidance of DATA 515 project, which greatly improved our understanding of software design and specific practice skills in data science. <br>
+We are grateful to our course instructors, Mark Friedman and Bernease Herman, for their valuable guidance on our DATA 515 project, which improved our understanding of software design best practices. <br>
 <br>
-Our data sources are mainly the public Yelp Open Dataset and the Nutritionix dataset, we sincerely thank these open sources for supporting our project.
+
 
 
