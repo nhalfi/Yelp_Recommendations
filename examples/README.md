@@ -27,10 +27,10 @@ We extracted these files from the Yelp Open Dataset. For more information and ad
 
 Navigate to the data_processing folder:   
 ```cd Yelp/data_processing```  
-Run the download_nutritionix_data.ps1 script:  
-``` powershell.exe -file "download_nutritionix_data.ps1"```
+Run the download_nutritionix_data.py script:  
+``` python download_nutritionix_data.py"```
 
-You should now see the restaurants_items.json file. Open the file and add an opening bracket at the beginning, ```[```, and replace the final ```,``` with a closing bracket, ```]```. Move the saved restaurants_items.json file to the data folder.  
+You should now see the restaurants_items.json file in the data folder. 
 Please refer to the following [link](https://www.nutritionix.com/business/api) for more information on the Nutritionix API.
 
 #### 3. Process the Datasets and Run the Text Classification Model
