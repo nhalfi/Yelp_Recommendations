@@ -100,7 +100,7 @@ To better understand how to use ```Yelp-Recommendations``` , please refer to the
 
 <h2>Acknowledgements</h2> 
 
-We are grateful to our course instructors, Mark Friedman and Bernease Herman, for their valuable guidance on our DATA 515 project, which improved our understanding of software design best practices. <br>
+We are grateful to our course instructors, Bernease Herman and Mark Friedman, for their valuable guidance on our DATA 515 project, which improved our understanding of software design best practices. <br>
 <br>
 
 
