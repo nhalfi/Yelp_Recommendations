@@ -44,7 +44,7 @@ def fetch_data_from_nutritionix(iteration_count=1):
     return results
 
 
-def persist_data_as_json(data, filename="restaurants_items.json"):
+def persist_data_as_json(data, filename="../data/restaurants_items.json"):
 
     with open(filename, 'w') as json_file:
         json.dump(data, json_file)
