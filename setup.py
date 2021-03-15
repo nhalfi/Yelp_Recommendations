@@ -22,7 +22,7 @@ setuptools.setup(
     install_requires=['pandas', 'numpy', 'sklearn', 'nltk', 'pandas',
                       'dash==1.19.0', 'dash-bootstrap-components',
                       'dash-core-components', 'dash-html-components',
-                      'dash-leaflet', 'Flask==1.1.2',
+                      'dash-leaflet==0.1.13', 'Flask==1.1.2',
                       'flask-compress', 'plotly',
                       'dash-renderer', 'dash-table',
                       'future', 'Jinja2'],

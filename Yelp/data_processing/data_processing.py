@@ -49,12 +49,12 @@ def clean_yelp(df_business, df_photos):
 
     df_business['restaurant'] = df_business['categories'].str.contains(
                                 'Restaurants|Food')
-    df_restaurants = df_business[df_business['restaurant'] == 'True']
+    df_restaurants = df_business[df_business['restaurant']
+                                 == True]  # noqa: E712
 
     # drop unneeded columns and output to csv
     df_restaurants = df_restaurants.drop(['is_open', 'attributes', 'hours',
                                          'restaurant'], axis=1)
-    # df_restaurants.to_csv('../data/yelp_business_clean.csv')
 
     # ### photo filtering ####
     df_photos = df_photos[df_photos['business_id'].isin
@@ -113,17 +113,16 @@ def text_process(df, token_col):
     # filter out stopwords
     stop_words = stopwords.words('english')
     df2['filtered_caption'] = df2['caption_clean']
-    df2['filtered_caption'] = df2['filtered_caption'].apply
-    (
-        lambda x: [item for item in x if item not in stop_words]
-    )
+    df2['filtered_caption'] = df2['filtered_caption'].apply(lambda x:
+                                                            [item for item in
+                                                             x if item not in
+                                                             stop_words])
 
     # perform stemming to get stems of words
     porter = PorterStemmer()
-    df2['filtered_caption'] = df2['filtered_caption'].apply
-    (
-        lambda x: [porter.stem(item) for item in x]
-    )
+    df2['filtered_caption'] = df2['filtered_caption'].apply(lambda x:
+                                                            [porter.stem(item)
+                                                             for item in x])
 
     if(len(df2) == 0):
         raise ProcessingError("Error: tokenized dataframe contains no records")
@@ -164,10 +163,8 @@ def main():
         df_nutritionix_health = calculate_health(df_nutritionix)
 
         # preprocess training dataset
-        df_nutritionix_tokenized = text_process
-        (
-            df_nutritionix_health, 'fields.item_name'
-        )
+        df_nutritionix_tokenized = text_process(df_nutritionix_health,
+                                                'fields.item_name')
 
         # output dataframes to csv
         output_csv(df_join, df_yelp_tokenized,

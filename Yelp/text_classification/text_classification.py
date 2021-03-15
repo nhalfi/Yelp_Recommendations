@@ -136,9 +136,9 @@ def predict_on_Yelp(model, yelp_test_data, yelp):
     # scores for each business
 
     yelp_final = yelp.groupby(['business_id', 'name', 'address', 'city',
-                              'state', 'postal_code', 'latitude', 'longitude',
-                               'stars', 'review_count', 'categories'])
-    [['prediction_score']].mean()
+                               'state', 'postal_code', 'latitude', 'longitude',
+                               'stars', 'review_count',
+                               'categories'])[['prediction_score']].mean()
     yelp_final['healthy_percent'] = pd.Series(["{0:.2f}%".format(val * 100)
                                               for val in yelp_final
                                               ['prediction_score']],
