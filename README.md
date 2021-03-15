@@ -2,7 +2,7 @@
 Final project for DATA 515 Software Design for Data Science course at University of Washington (Winter 2021)
 
 <h2> Introduction </h2>
-With the increasing emphasis on health diet and lifestyle, more and more people have a need for nearby healthy restaurants. However, few tools incorporate this dimension into restaurant searches. The goal of our project is to provide a way for users to discover healthy restaurants within the existing Yelp directory. We achieved this by providing restaurant health ratings to eaters based on the results of our machine learning model that applies Natural Language Processing and Text Classification techniques. Specifically, we analyzed the descriptive text in the captions of food photos on Yelp to infer whether the food is healthy or not. We then averaged the scores for a given restaurant to provide a health score ranging from 0-100%.
+With the increasing emphasis on healthy diet and lifestyle, more and more people have a need for nearby healthy restaurants. However, few tools incorporate this dimension into restaurant searches. The goal of our project is to provide a way for users to discover healthy restaurants within the existing Yelp directory. We achieved this by providing restaurant health ratings to eaters based on the results of our machine learning model that applies Natural Language Processing and Text Classification techniques. Specifically, we analyzed the descriptive text in the captions of food photos on Yelp to infer whether the food is healthy or not. We then averaged the scores for a given restaurant to provide a health score ranging from 0-100%.
 
 <h2>Data</h2>
 
@@ -11,7 +11,7 @@ With the increasing emphasis on health diet and lifestyle, more and more people 
 <i> <h4> Nutritionix Dataset </h4></i> The second dataset is the [Nutritionix dataset](https://www.nutritionix.com/business/api) which contains nutrition information from chain restaurants across the US.  We used this dataset to train our classification model that assigns healthy or unhealthy labels. To achieve this, we performed feature engineering on the dataset to generate training labels based on the nutrition information for each item. To learn more about the nutrition logic used, please refer to our Component Documentation. <br>
 
 <i> <h4> Terms of Use </h4></i>
-The Yelp Open Dataset is publicly accessible and allows public use for academic purposes. The Nutritionix API is publicly accessible, but does not allow caching of its data. Therefore, we have not stored any of its data in our repository, but we provide instructions on how to pull the data locally in our Examples folder. We encourage all users to review [Yelp Dataset: Terms of Service](https://terms.yelp.com/tos/en_us/20200101_en_us/) and [Nutritionix Dataset: Terms and Conditions](https://www.nutritionix.com/apiterms) for more information.
+The Yelp Open Dataset is publicly accessible and allows public use for academic purposes. The Nutritionix API is publicly accessible, but does not allow caching of its data. Therefore, we have not stored any of its data in our repository, but we provide instructions on how to pull the data locally in our [examples folder](https://github.com/nhalfi/Yelp_Recommendations/tree/main/examples). We encourage all users to review [Yelp Dataset: Terms of Service](https://terms.yelp.com/tos/en_us/20200101_en_us/) and [Nutritionix Dataset: Terms and Conditions](https://www.nutritionix.com/apiterms) for more information.
 
 
 <h2>Organization of the Project</h2>
