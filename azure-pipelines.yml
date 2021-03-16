@@ -44,6 +44,12 @@ stages:
         python -m flake8 ./Yelp
       workingDirectory: $(projectRoot)
       displayName: "Run Flake"
+    - script: |
+        source antenv/bin/activate
+        cd Yelp/tests
+        python -m unittest test_*
+      workingDirectory: $(projectRoot)
+      displayName: "Run Tests"
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
