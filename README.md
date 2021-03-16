@@ -1,6 +1,8 @@
 # Yelp_Recommendations
 Final project for DATA 515 Software Design for Data Science course at University of Washington (Winter 2021)
 
+**Team members**: Sepideh Dibay Moghadam, Natasha Halfin, Harsha Koonaparaju, Xiaoyu Lin, Liem Luong, Divya Pandey
+
 <h2> Introduction </h2>
 With the increasing emphasis on healthy diet and lifestyle, more and more people have a need for nearby healthy restaurants. However, few tools incorporate this dimension into restaurant searches. The goal of our project is to provide a way for users to discover healthy restaurants within the existing Yelp directory. We achieved this by providing restaurant health ratings to eaters based on the results of our machine learning model that applies Natural Language Processing and Text Classification techniques. Specifically, we analyzed the descriptive text in the captions of food photos on Yelp to infer whether the food is healthy or not. We then averaged the scores for a given restaurant to provide a health score ranging from 0-100%.
 
