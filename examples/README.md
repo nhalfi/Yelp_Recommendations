@@ -4,6 +4,7 @@
 
 To launch the app, run the following commands in the terminal:
 ```
+    cd Yelp
     python app.py
 ```
 
@@ -17,7 +18,7 @@ Dash is running on http://127.0.0.1:8050/
    Use a production WSGI server instead.
  * Debug mode: on
  ```
- Open the url in a browser and should see the landing page as shown below.
+ Open the url in a browser and you should see the landing page as shown below.
  ![Landing Page](landing_page.png)
 
 
@@ -45,7 +46,7 @@ We extracted these files from the Yelp Open Dataset. For more information and ad
 Due to Nutritionix's Terms of Use, we are unable to cache their data in our repository. However, we have provided a script that performs the necessary API call.
 
 Navigate to the data_processing folder:   
-```cd Yelp/data_processing```  
+```cd data_processing```  
 Run the download_nutritionix_data.py script:  
 ``` python download_nutritionix_data.py```
 
@@ -56,8 +57,7 @@ Please refer to the following [link](https://www.nutritionix.com/business/api) f
 
 Now that we have pulled the necessary data files, we can run the data_processing module, which cleans the Yelp and Nutritonix datasets and performs text pre-processing that prepares the data to be ingested by our machine learning model. 
 
-Navigate to the data_processing folder and run data_processing.py :   
-```cd ../data_procesing```  
+Run data_processing.py :    
 ```python data_processing.py```
 
 Next, navigate to the text_classification folder and run text_classification.py :  
