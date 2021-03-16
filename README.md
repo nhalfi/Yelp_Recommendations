@@ -22,54 +22,53 @@ The project has the following structure (9 directories, 39 files): <br>
 ```
 .
 └── Yelp_Recommendations-main
-    ├── LICENSE
-    ├── README.md
-    ├── Yelp
-    │   ├── __init__.py
-    │   ├── app.py
-    │   ├── data
-    │   │   ├── Yelp_Healthy_restaurant_predictions.csv
-    │   │   ├── __init__.py
-    │   │   ├── nutritionix_health.csv
-    │   │   ├── nutritionix_tokenized.csv
-    │   │   ├── restaurants_dao.py
-    │   │   ├── yelp_business_clean.csv
-    │   │   ├── yelp_final_tokenized.csv
-    │   │   ├── yelp_joined_clean.csv
-    │   │   └── yelp_photos_clean.csv
-    │   ├── data_processing
-    │   │   ├── __init__.py
-    │   │   ├── data_processing.py
-    │   │   └── download_nutritionix_data.py
-    │   ├── tests
-    │   │   ├── __init__.py
-    │   │   ├── business.json
-    │   │   ├── empty.csv
-    │   │   ├── logic_test.csv
-    │   │   ├── nutrition.json
-    │   │   ├── photos.json
-    │   │   ├── restaurant_sample.csv
-    │   │   ├── restaurant_sample2.csv
-    │   │   ├── sample_nutritionix_data.csv
-    │   │   ├── sample_yelp_data.csv
-    │   │   ├── test_data_processing.py
-    │   │   ├── test_download_nutritionix_data.py
-    │   │   ├── test_restaurants_dao.py
-    │   │   └── test_text_classification.py
-    │   ├── text_classification
-    │   │   ├── __init__.py
-    │   │   └── text_classification.py
-    │   └── ui
-    │       ├── __init__.py
-    │       └── html_components.py
     ├── azure-pipelines.yml
     ├── docs
     │   ├── Final\ Project\ Draft\ Presentation.pptx.pdf
     │   └── Yelp_Healthy_Restaurant_Component_Specification.docx.pdf
     ├── examples
     │   └── README.md
-    └── setup.py
-
+    ├── LICENSE
+    ├── README.md
+    ├── setup.py  
+    └── Yelp
+        ├── __init__.py
+        ├── app.py
+        ├── data
+        │   ├── Yelp_Healthy_restaurant_predictions.csv
+        │   ├── __init__.py
+        │   ├── nutritionix_health.csv
+        │   ├── nutritionix_tokenized.csv
+        │   ├── restaurants_dao.py
+        │   ├── yelp_business_clean.csv
+        │   ├── yelp_final_tokenized.csv
+        │   ├── yelp_joined_clean.csv
+        │   └── yelp_photos_clean.csv
+        ├── data_processing
+        │   ├── __init__.py
+        │   ├── data_processing.py
+        │   └── download_nutritionix_data.py
+        ├── tests
+        │   ├── __init__.py
+        │   ├── business.json
+        │   ├── empty.csv
+        │   ├── logic_test.csv
+        │   ├── nutrition.json
+        │   ├── photos.json
+        │   ├── restaurant_sample.csv
+        │   ├── restaurant_sample2.csv
+        │   ├── sample_nutritionix_data.csv
+        │   ├── sample_yelp_data.csv
+        │   ├── test_data_processing.py
+        │   ├── test_download_nutritionix_data.py
+        │   ├── test_restaurants_dao.py
+        │   └── test_text_classification.py
+        ├── text_classification
+        │   ├── __init__.py
+        │   └── text_classification.py
+        └── ui
+            ├── __init__.py
+            └── html_components.py
 ```
 
 <h2>Installation and Running Tests</h2> 
