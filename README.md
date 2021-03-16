@@ -17,10 +17,10 @@ The Yelp Open Dataset is publicly accessible and allows public use for academic 
 
 
 <h2>Organization of the Project</h2>
-The project has the following structure (8 directories, 36 files): <br>
+The project has the following structure (9 directories, 39 files): <br>
 
 ```
-  
+.
 └── Yelp_Recommendations-main
     ├── LICENSE
     ├── README.md
@@ -53,6 +53,7 @@ The project has the following structure (8 directories, 36 files): <br>
     │   │   ├── sample_nutritionix_data.csv
     │   │   ├── sample_yelp_data.csv
     │   │   ├── test_data_processing.py
+    │   │   ├── test_download_nutritionix_data.py
     │   │   ├── test_restaurants_dao.py
     │   │   └── test_text_classification.py
     │   ├── text_classification
@@ -62,9 +63,13 @@ The project has the following structure (8 directories, 36 files): <br>
     │       ├── __init__.py
     │       └── html_components.py
     ├── azure-pipelines.yml
+    ├── docs
+    │   ├── Final\ Project\ Draft\ Presentation.pptx.pdf
+    │   └── Yelp_Healthy_Restaurant_Component_Specification.docx.pdf
     ├── examples
     │   └── README.md
     └── setup.py
+
 ```
 
 <h2>Installation and Running Tests</h2> 
