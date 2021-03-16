@@ -68,6 +68,7 @@ The project has the following structure (8 directories, 36 files): <br>
 ```
 
 <h2>Installation and Running Tests</h2> 
+
 First, you will need to clone this repository:    
 ```git clone https://github.com/nhalfi/Yelp_Recommendations.git ```  
 
