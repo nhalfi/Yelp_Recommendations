@@ -3,13 +3,30 @@
 ### Launching the App
 
 To launch the app, run the following commands in the terminal:
-
+```
+    python app.py
+```
 
 You should now see the following UI:
+```
+Dash is running on http://127.0.0.1:8050/
+
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ ```
+ Open the url in a browser and should see the landing page as shown below.
+ ![Landing Page](landing_page.png)
 
 
 You can interact with the app throught the following actions:
-
+* Browse various restaurants in an area of interest in the map. 
+* Search for a restaurant or a cuisine in the search box.
+* Filter the results based on State, City and ratings. 
+* The data can also be filtered based on health score. Health score is an indication of how healthy a restaurant's menu items are. 
+* The cards below the map show top 20 healthy restaurants.
 
 ### Reproducing our Model
 
