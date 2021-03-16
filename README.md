@@ -10,61 +10,65 @@ With the increasing emphasis on healthy diet and lifestyle, more and more people
 
 <i> <h4> Yelp Dataset </h4></i> The main dataset for our project is the public [Yelp Open Dataset](https://www.yelp.com/dataset). This dataset is available via JSON files. The data captures details of almost 209K Businesses across ~10 cities capturing ~ 8M reviews and ~200K pictures. In our project, we leveraged the business details and photo captions as features to classify healthy or unhealthy restaurants based on the photos shared by Yelpers. 
 
-<i> <h4> Nutritionix Dataset </h4></i> The second dataset is the [Nutritionix dataset](https://www.nutritionix.com/business/api) which contains nutrition information from chain restaurants across the US.  We used this dataset to train our classification model that assigns healthy or unhealthy labels. To achieve this, we performed feature engineering on the dataset to generate training labels based on the nutrition information for each item. To learn more about the nutrition logic used, please refer to our Component Documentation. <br>
+<i> <h4> Nutritionix Dataset </h4></i> The second dataset is the [Nutritionix dataset](https://www.nutritionix.com/business/api) which contains nutrition information from chain restaurants across the US.  We used this dataset to train our classification model that assigns healthy or unhealthy labels. To achieve this, we performed feature engineering on the dataset to generate training labels based on the nutrition information for each item. To learn more about the nutrition logic used, please refer to our [Component Documentation](https://github.com/nhalfi/Yelp_Recommendations/blob/main/docs/Yelp_Healthy_Restaurant_Component_Specification.docx.pdf). <br>
 
 <i> <h4> Terms of Use </h4></i>
 The Yelp Open Dataset is publicly accessible and allows public use for academic purposes. The Nutritionix API is publicly accessible, but does not allow caching of its data. Therefore, we have not stored any of its data in our repository, but we provide instructions on how to pull the data locally in our [examples folder](https://github.com/nhalfi/Yelp_Recommendations/tree/main/examples). We encourage all users to review [Yelp Dataset: Terms of Service](https://terms.yelp.com/tos/en_us/20200101_en_us/) and [Nutritionix Dataset: Terms and Conditions](https://www.nutritionix.com/apiterms) for more information.
 
 
 <h2>Organization of the Project</h2>
-The project has the following structure (8 directories, 36 files): <br>
+The project has the following structure (9 directories, 39 files): <br>
 
 ```
-  
+.
 └── Yelp_Recommendations-main
-    ├── LICENSE
-    ├── README.md
-    ├── Yelp
-    │   ├── __init__.py
-    │   ├── app.py
-    │   ├── data
-    │   │   ├── Yelp_Healthy_restaurant_predictions.csv
-    │   │   ├── __init__.py
-    │   │   ├── nutritionix_health.csv
-    │   │   ├── nutritionix_tokenized.csv
-    │   │   ├── restaurants_dao.py
-    │   │   ├── yelp_business_clean.csv
-    │   │   ├── yelp_final_tokenized.csv
-    │   │   ├── yelp_joined_clean.csv
-    │   │   └── yelp_photos_clean.csv
-    │   ├── data_processing
-    │   │   ├── __init__.py
-    │   │   ├── data_processing.py
-    │   │   └── download_nutritionix_data.py
-    │   ├── tests
-    │   │   ├── __init__.py
-    │   │   ├── business.json
-    │   │   ├── empty.csv
-    │   │   ├── logic_test.csv
-    │   │   ├── nutrition.json
-    │   │   ├── photos.json
-    │   │   ├── restaurant_sample.csv
-    │   │   ├── restaurant_sample2.csv
-    │   │   ├── sample_nutritionix_data.csv
-    │   │   ├── sample_yelp_data.csv
-    │   │   ├── test_data_processing.py
-    │   │   ├── test_restaurants_dao.py
-    │   │   └── test_text_classification.py
-    │   ├── text_classification
-    │   │   ├── __init__.py
-    │   │   └── text_classification.py
-    │   └── ui
-    │       ├── __init__.py
-    │       └── html_components.py
     ├── azure-pipelines.yml
+    ├── docs
+    │   ├── Final\ Project\ Draft\ Presentation.pptx.pdf
+    │   └── Yelp_Healthy_Restaurant_Component_Specification.docx.pdf
     ├── examples
     │   └── README.md
-    └── setup.py
+    ├── LICENSE
+    ├── README.md
+    ├── setup.py  
+    └── Yelp
+        ├── __init__.py
+        ├── app.py
+        ├── data
+        │   ├── Yelp_Healthy_restaurant_predictions.csv
+        │   ├── __init__.py
+        │   ├── nutritionix_health.csv
+        │   ├── nutritionix_tokenized.csv
+        │   ├── restaurants_dao.py
+        │   ├── yelp_business_clean.csv
+        │   ├── yelp_final_tokenized.csv
+        │   ├── yelp_joined_clean.csv
+        │   └── yelp_photos_clean.csv
+        ├── data_processing
+        │   ├── __init__.py
+        │   ├── data_processing.py
+        │   └── download_nutritionix_data.py
+        ├── tests
+        │   ├── __init__.py
+        │   ├── business.json
+        │   ├── empty.csv
+        │   ├── logic_test.csv
+        │   ├── nutrition.json
+        │   ├── photos.json
+        │   ├── restaurant_sample.csv
+        │   ├── restaurant_sample2.csv
+        │   ├── sample_nutritionix_data.csv
+        │   ├── sample_yelp_data.csv
+        │   ├── test_data_processing.py
+        │   ├── test_download_nutritionix_data.py
+        │   ├── test_restaurants_dao.py
+        │   └── test_text_classification.py
+        ├── text_classification
+        │   ├── __init__.py
+        │   └── text_classification.py
+        └── ui
+            ├── __init__.py
+            └── html_components.py
 ```
 
 <h2>Installation and Running Tests</h2> 
