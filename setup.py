@@ -25,6 +25,7 @@ setuptools.setup(
                       'dash-leaflet==0.1.13', 'Flask==1.1.2',
                       'flask-compress', 'plotly',
                       'dash-renderer', 'dash-table',
-                      'future', 'Jinja2'],
+                      'future', 'Jinja2',
+                      'requests'],
     python_requires=">=3.7"
 )
