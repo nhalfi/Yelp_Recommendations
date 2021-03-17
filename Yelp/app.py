@@ -20,6 +20,7 @@ df = load_data_from_file()
 model_converter = ModelCoverter(df)
 
 
+# This function has callbacks from the UI landing page.
 @app.callback(
     Output('cities-dropdown', 'options'),
     Output('geojson', 'data'),
@@ -51,9 +52,10 @@ def update_text(
     filter['ratings'] = ratings
     filtered_df = get_yelp_dataframe(df, user_selections=filter)
     model_converter = ModelCoverter(filtered_df)
-    return model_converter.get_unique_cities(),
-    model_converter.get_cluster_makers(),
-    model_converter.get_restaurant_cards()
+    return (
+        model_converter.get_unique_cities(),
+        model_converter.get_cluster_makers(),
+        model_converter.get_restaurant_cards())
 
 
 app.layout = get_initial_view(model_converter)
