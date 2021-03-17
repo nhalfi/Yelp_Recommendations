@@ -23,6 +23,17 @@ def search(regex: str, df, case=False):
 
 
 def get_yelp_dataframe(user_df, user_selections=None):
+    """Function takes an user provided dataframe.
+    Filters the dataframe with user made selctions.
+
+    Args:
+        user_df (DataFrame): user provided pandas dataframe.
+        user_selections (dict, optional): Filter values to apply.
+                                            Defaults to None.
+
+    Returns:
+        DataFrame: Returns a filtered dataframe.
+    """
     filtered_df = user_df
     if user_selections:
         search_string = user_selections.get('search_string', None)

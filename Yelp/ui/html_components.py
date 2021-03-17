@@ -37,10 +37,17 @@ icon = {
 
 
 class ModelCoverter:
+
     def __init__(self, df):
         self.df = df
 
     def get_unique_cities(self):
+        """
+            Function that produces list of dictionaries with city name.
+            This list can be used as arguments for dash dropdown component.
+        Returns:
+            list: list of cities as a dictionary.
+        """
         cities = list(self.df['city'].unique())
         cities_groups_all = []
         if cities:
@@ -50,6 +57,12 @@ class ModelCoverter:
         return cities_groups_all
 
     def get_unique_states(self):
+        """
+            Function that produces list of dictionaries with state name.
+            This list can be used as arguments for dash dropdown component.
+        Returns:
+            list: list of states as a dictionary.
+        """
         states = list(self.df['state'].unique())
         states_groups_all = []
         if states:
@@ -59,6 +72,13 @@ class ModelCoverter:
         return states_groups_all
 
     def get_cluster_makers(self):
+        """
+            Utility fucntion that produces leaflet markers as geojson objects.
+            Markers contain tooltip and popup elements.
+            Color and other aspects of markers can be modified here.
+        Returns:
+            object: geojson for leaflet.
+        """
         if self.df is not None:
             dicts = self.df.to_dict('rows')
             for item in dicts:
@@ -72,13 +92,30 @@ class ModelCoverter:
             return geojson
 
     def get_categories(self):
+        """
+            This function  creates a set of cuisine categories from the data.
+            Categories column has categories offered by each restaurant.
+        Returns:
+            list: list of categories
+        """
         categories = set()
         for csv_category in self.df['categories']:
-            for category in csv_category.split[',']:
+            for category in csv_category.split(','):
                 categories.add(category)
         return list(categories)
 
     def get_restaurant_cards(self, limit=20):
+        """
+        Creates a list of bootstrap cards.
+        Each card shows details of restaurant.
+        The list is ordered by the health percent column, in descending order.
+
+        Args:
+            limit (int, optional): Number of cards to return. Defaults to 20.
+
+        Returns:
+            object: A boostrap cards object.
+        """
         sorted_df = self.df.sort_values(
             by=['prediction_score'],
             ascending=False
@@ -86,10 +123,10 @@ class ModelCoverter:
         cards = []
         for _, row in sorted_df.iterrows():
             card_content = [
-                dbc.CardHeader(row['name']),
+                dbc.CardHeader(html.H5(row['name'])),
                 dbc.CardBody(
                     [
-                        html.H5(row['address'], className="card-title"),
+                        html.P(row['address'], className="card-title"),
                         html.P(
                             "health score {}".format(row['healthy_percent']),
                             className="card-text",
@@ -108,6 +145,14 @@ class Components:
 
     @staticmethod
     def get_leaflet_map(geojson):
+        """Creates a dash leaflet object used in the landing page.
+
+        Args:
+            geojson (object): takes python object that is a geojson.
+
+        Returns:
+            object: Dash leaflet object.
+        """
 
         return html.Div([
             dl.Map(center=[39, -98], zoom=4, children=[
@@ -131,6 +176,14 @@ class Components:
 
     @staticmethod
     def get_cities_list(cities):
+        """Creates a dropdown list of cities.
+
+        Args:
+            cities (list): list of dictionaries needed for dash dropdown.
+
+        Returns:
+            Object: Dash drop down component.
+        """
         return dcc.Dropdown(
             id='cities-dropdown',
             options=cities,
@@ -146,6 +199,14 @@ class Components:
 
     @staticmethod
     def get_states_list(states):
+        """Creates a drop down with provided states.
+
+        Args:
+            states (list): List of dictionaries needed for dropdown.
+
+        Returns:
+            object : Dash dropdown with states.
+        """
         return dcc.Dropdown(
             id='states-dropdown',
             options=states,
@@ -161,6 +222,14 @@ class Components:
 
     @staticmethod
     def get_categories_list(categories):
+        """Creates a drop down with categories states.
+
+        Args:
+            categories (list): List of dictionaries needed for dropdown.
+
+        Returns:
+            object : Dash dropdown with states.
+        """
         return dcc.Dropdown(
             id='categories-dropdown',
             options=categories,
@@ -176,15 +245,26 @@ class Components:
 
     @staticmethod
     def get_ratings_radioitems():
-        return dcc.RadioItems(
-            id='ratings',
-            options=[
-                {'label': '5 Stars', 'value': 5},
-                {'label': '4 stars and up', 'value': 4},
-                {'label': '3 stars and up', 'value': 3},
-                {'label': '2 stars and up', 'value': 2},
-                {'label': '1 stars and up', 'value': 1},
-                ],
+        """Creates radio button items for ratings.
+
+        Returns:
+            object: returns dash bootstrap radioitems.
+        """
+        return dbc.FormGroup(
+            [
+                dbc.Label("Ratings"),
+                dbc.RadioItems(
+                    options=[
+                        {'label': '5 Stars', 'value': 5},
+                        {'label': '4 stars and up', 'value': 4},
+                        {'label': '3 stars and up', 'value': 3},
+                        {'label': '2 stars and up', 'value': 2},
+                        {'label': '1 stars and up', 'value': 1},
+                    ],
+                    id="ratings",
+                ),
+
+            ]
         )
 
     @staticmethod
@@ -193,11 +273,16 @@ class Components:
 
     @staticmethod
     def get_text_input():
+        """Createa a text input for users to serach.
+
+        Returns:
+            Dash text ui element.
+        """
         return html.Div(
             [
                 dbc.Input(
                     id="input",
-                    placeholder="Type something...",
+                    placeholder="Search cuisine or restaurants...",
                     type="text",
                     debounce=True
                 ),
@@ -207,6 +292,11 @@ class Components:
 
     @staticmethod
     def get_health_slider():
+        """Creates a dash slider object for health score filtering.
+
+        Returns:
+            A dash object of a slider ui element.
+        """
         return dcc.Slider(
             id='health-slider',
             min=0,
@@ -230,6 +320,12 @@ class Components:
 
 
 def get_initial_view(model_converter):
+    """The function builds the view that is displayed on page load.
+    The page contains a side navigation bar and main content page.
+
+    Args:
+        ModelConverter: A model converter object used for generatig view.
+    """
     geojson = model_converter.get_cluster_makers()
     sidebar = html.Div(
         [
@@ -251,7 +347,6 @@ def get_initial_view(model_converter):
                     html.Br(),
                     html.Div(
                         [
-                            html.P("Ratings"),
                             Components.get_ratings_radioitems()
                         ])
                 ],
@@ -264,6 +359,8 @@ def get_initial_view(model_converter):
 
     map_restaurants = html.Div([
         html.H1('Yelp Restaurants'),
+        html.P("""The results shown below are from a machine learning
+        model and thus may not necessarily be nutritionally accurate."""),
         Components.get_leaflet_map(geojson),
     ], id="page-content", style=CONTENT_STYLE)
 
