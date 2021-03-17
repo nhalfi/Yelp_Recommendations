@@ -25,7 +25,8 @@ The project has the following structure (9 directories, 39 files): <br>
     ├── azure-pipelines.yml
     ├── docs
     │   ├── Final\ Project\ Draft\ Presentation.pptx.pdf
-    │   └── Yelp_Healthy_Restaurant_Component_Specification.docx.pdf
+    │   ├── Yelp_Healthy_Restaurant_Component_Specification.docx.pdf
+    |   └── Yelp_Healthy_Restaurant_Functional_Specification.docx.pdf
     ├── examples
     │   └── README.md
     ├── LICENSE
