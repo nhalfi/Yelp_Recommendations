@@ -43,7 +43,7 @@ We extracted these files from the Yelp Open Dataset. For more information and ad
 
 #### 2. Download Nutritionix Data
 
-Due to Nutritionix's Terms of Use, we are unable to cache their data in our repository. However, we have provided a script that performs the necessary API call.
+Due to Nutritionix's Terms of Use, we are unable to cache their data in our repository. However, we have provided a script that performs the necessary API call. Please not that the user needs to replace the the appId and appkey with their owns. To get the appId and appkey please go to the [Nutritionix website](https://www.nutritionix.com/business/api) and use the free API plan to get your Id and key.
 
 Navigate to the data_processing folder:   
 ```cd data_processing```  
